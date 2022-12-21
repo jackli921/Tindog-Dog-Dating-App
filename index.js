@@ -1,5 +1,6 @@
-import dogs from "/data.js"
-import Dog from "/Dog.js"
+
+import dogs from "./data.js"
+import Dog from "./Dog.js"
 
 
 let modifiableDogsData = [] // create new array from module
@@ -109,8 +110,6 @@ rejectBtn.addEventListener('click', ()=>{
     renderBadge("badge-nope") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
-    console.log(dogArrayIndex)
-    console.log(modifiableDogsData.length)
     
     if(currentDog.hasBeenSwiped){
  
@@ -139,8 +138,6 @@ acceptBtn.addEventListener('click', ()=>{
     renderBadge("badge-like") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
-    console.log(dogArrayIndex)
-    console.log(modifiableDogsData.length)
     
     if(currentDog.hasBeenSwiped){
         if(dogArrayIndex < modifiableDogsData.length){
@@ -210,7 +207,7 @@ function endScreen(){
 }
 
 
-// input disable 
+// disable input 
 function disableBtns(){
     // undoBtn.disabled = true 
     acceptBtn.disabled = true // disable both input button when valid button click is detected
@@ -218,7 +215,7 @@ function disableBtns(){
     superBtn.disabled = true   
 }
 
-// input enable 
+// enable input  
 function enableBtns(){
     // undoBtn.disabled = false 
     acceptBtn.disabled = false // disable both input button when valid button click is detected
@@ -226,6 +223,3 @@ function enableBtns(){
     superBtn.disabled = false
     undoBtn.disabled = false   
 }
-// undo function
-
-
