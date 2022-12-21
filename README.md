@@ -14,7 +14,7 @@ A training project built to consolidate key concepts I learned from:
 - Expandable info icon which reveals more info 
 
 ## Demo
- ![Demo](demo.gif)
+ ![](/images/demo.gif)
 
 
 
