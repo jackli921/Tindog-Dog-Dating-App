@@ -79,8 +79,8 @@ const dogs = [
         city: "Vienna",
         country: "Austria",
         likes:"flowers, trees, nature",
-        dislikes:"when the sun goes down",
-        bio: "Loves: the outdoors, good food, chasing squirrels, bubble wrap. Dislikes: having nails clipped, that dog down the road, early mornings",
+        dislikes:"Having nails clipped, that dog down the road, early mornings",
+        bio: "Loves: the outdoors, chasing squirrels, bubble wrap.", 
         hasBeenSwiped: false,
         hasBeenLiked: false
     },
