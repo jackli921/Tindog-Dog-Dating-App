@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="HTML, CSS, JavaScript Color scheme generator">
+    <meta name="author " content="Run Qi (Jack) Li">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <!-- CDN link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+    <!-- reset css -->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="index.css">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="nav-bar">
+            <img class="nav-icons" src="images/icon-profile.png" alt="an grey head icon">
+            <img class="nav-icons" id="tindog-logo" src="images/logo.png" alt="illustration of a dog's paw">
+            <img class="nav-icons" src="images/icon-chat.png" alt="a text bubble">
+        </div>
+    </header>
+
+    <main class="main-container">
+
+        <div class="homepage-modal modal-primary bio hidden" id="homepage-modal">
+            <img src="images/tindog-icon.png" class="tindog-icon"
+                alt="an icon of a dog's paw with Tindog and world edition written on the right in vibrant colors">
+
+            <p>Tindog was created by Run Qi (Jack) Li as a part of the solo projects for Module 7 of Next Level
+                JavaScript of the <a href="https://scrimba.com/learn/frontend">Scrimba Frontend Developer course</a>.
+            </p>
+
+            <p>The additional features of this app was inspired by Daniel Beck Rose, who is also a Scrimba student; You
+                can check his <a href="https://tindogbarcelona.netlify.app/?dog=toby&group=facebook">Tindog</a> or reach
+                him at .</p>
+
+            <p>Others dog profiles are, unfortunately, ficticious but are all created with ❤️ ️. In the future, Jack
+                hopes to own a Shiba.</p>
+
+            <p>Jack has a <a href="https://unique-toffee-313a21.netlify.app/">porfolio website (work in progress)</a>,
+                and a <a href="https://www.linkedin.com/in/jackli921/">LinkedIn profile</a>. If you want to get in touch
+                with him, just <a href="mailto: li.jack0707@gmail.com">Email</a> him or DM him on DM<a
+                    href="https://twitter.com/li_jack0707"> Twitter</a>.</p>
+            <button id="homepage-close-button" class="button-primary">Okay</button>
+        </div>
+
+
+        <div class="unfinished-modal modal-primary hidden" id="unfinished-modal">
+            <img src="images/sorry.gif" alt="a bowing shiba dog saying sorrow">
+            <h1>Sorry, this function is currently under development! 🛠️</h1>
+            <button id="close-button" class="button-primary">Okay</button>
+        </div>
+
+        <div class="profile-container" id="profile-container">
+
+        </div>
+        <div class="expanded-profile-container hidden" id="expanded-profile-container"></div>
+
+
+        <div class="button-container">
+            <button class="btn-primary undo-btn" id="undo-btn" disabled></button>
+            <button class="btn-primary reject-btn" id="reject-btn"></button>
+            <button class="btn-primary accept-btn" id="accept-btn"></button>
+            <button class="btn-primary super-btn" id="super-btn"></button>
+        </div>
+
+
+
+
+        </div>
+    </main>
+
+
+    <script src="/index.js" type="module"></script>
+</body>
+
+</html>

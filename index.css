@@ -1,0 +1,451 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    background-image: linear-gradient(to right, #fd746c, #ff9068);
+}
+
+/* universal */
+body {
+    background-color: white;
+    width: 412.5px;
+    height: 100%;
+    position: relative;
+    border: 0.3rem solid black;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    margin: 2em auto;
+    padding-bottom: 1em;
+}
+
+header {
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.main-container {
+    position: relative;
+    height: 669px;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* utility section */
+.hidden {
+    display: none;
+}
+
+.bold {
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+
+.center {
+    text-align: center;
+}
+
+/* centering divs */
+.profile-img {
+    margin: 0px auto;
+}
+
+/* navigation bar elements */
+.nav-bar {
+    height: 60.75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-icons {
+    height: 34px;
+    margin: 0px 18px;
+    cursor: pointer;
+}
+
+
+/* mains section */
+.profile-container {
+    position: relative;
+    overflow: hidden scroll;
+}
+
+.profile-container>.final-message {
+    padding-bottom: 1.2em;
+}
+
+
+/* profileimage section */
+.profile-img {
+    height: 580px;
+    width: 98%;
+    border-radius: 10px;
+    display: block;
+    object-fit: cover;
+}
+
+.final-image {
+    height: 500px;
+}
+
+
+
+/* badge section */
+
+.badge {
+    z-index: 1;
+    position: absolute;
+    width: 180px;
+    top: 3em;
+    left: 1em;
+    -webkit-transform: rotate(-25deg);
+    -moz-transform: rotate(-25deg);
+    -ms-transform: rotate(-25deg);
+    -o-transform: rotate(-25deg);
+    transform: rotate(-25deg);
+    transition: transform 1s;
+}
+
+.spin-in {
+    animation-name: spin-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+.spin-out {
+    animation-name: spin-out;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+
+}
+
+@keyframes spin-in {
+    from {
+        transform: rotate(0deg);
+        width: 150%;
+    }
+
+    to {
+        transform: rotate(1080deg);
+        width: 234px;
+    }
+}
+
+@keyframes spin-out {
+
+    0%,
+    10%,
+    20%,
+    30%,
+    40%,
+    50% {
+        width: 234px;
+    }
+
+    5%,
+    15%,
+    25%,
+    35%,
+    45%,
+    55% {
+        width: 224px;
+    }
+
+    100% {
+        width: 500%;
+        animation-fill-mode: forward;
+        display: none;
+    }
+}
+
+/* smalelr */
+
+.zoom-in {
+    animation-name: zoom-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+
+}
+
+.zoom-out {
+    animation-name: zoom-out;
+    animation-duration: 0.5s;
+}
+
+
+@keyframes zoom-in {
+    from {
+        height: 600px;
+    }
+
+    to {
+        height: 400px;
+    }
+}
+
+
+@keyframes zoom-out {
+    from {
+        height: 400px;
+    }
+
+    to {
+        height: 600px;
+    }
+}
+
+/* text overlay */
+
+#text-overlay-container {
+    position: relative;
+    bottom: 40px;
+    width: 400px;
+    padding-left: 1em;
+    color: white;
+    display: flex;
+    font-weight: 600;
+    align-items: flex-start;
+    text-shadow: 0 0 4px black;
+}
+
+
+/* additional profile container  */
+
+.expanded-profile-container {
+    color: black;
+    height: 200px;
+    width: 400px;
+    padding-left: 1em;
+    padding-right: 1em;
+    overflow: hidden scroll;
+    line-height: 1.5;
+}
+
+/* additional profile elements */
+
+#location-icon-additional {
+    color: #383737;
+    width: 15px;
+}
+
+#dog-name,
+#location-overlay {
+    position: absolute;
+}
+
+#dog-name,
+.name-additional {
+    font-size: 1.7rem;
+    bottom: 0.3em;
+}
+
+.name-additional,
+.location-additional {
+    padding-top: 0.25rem;
+    padding-bottom: 0.3rem;
+}
+
+.bio {
+    font-size: 1rem;
+    padding-top: 0.5em;
+    line-height: 1.3;
+}
+
+.bio>p {
+    padding: inherit;
+    line-height: inherit;
+    line-height: inherit;
+}
+
+#location-overlay {
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+#location-icon {
+    position: relative;
+    top: 1.5px;
+    width: 15px;
+}
+
+
+#dog-name:hover,
+#dog-location:hover,
+#info-icon:hover {
+    color: orange;
+    cursor: pointer;
+}
+
+#info-icon,
+#down-arrow {
+    position: absolute;
+    right: 2rem;
+    bottom: 1rem;
+    width: 40px;
+    cursor: pointer
+}
+
+#info-icon:hover,
+#down-arrow:hover,
+.nav-icons:hover,
+.nav-icons:active {
+    opacity: 0.8;
+
+}
+
+
+.button-container {
+    width: 400px;
+    height: 85px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    padding: 0px 30px;
+    position: absolute;
+    bottom: -10px;
+    left: 0px;
+}
+
+/* buttons */
+.btn-primary {
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* undo button */
+.undo-btn {
+    background-image: url(images/icon-undo.png);
+    background-size: 65%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* reject button */
+.reject-btn {
+    background-image: url(images/icon-reject.png);
+    background-size: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* accept-button */
+.accept-btn {
+    background-image: url(images/icon-accept.png);
+    background-size: 65%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* super-button */
+.super-btn {
+    background-image: url(images/icon-super.png);
+    background-size: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* grey out button */
+.undo-btn:disabled,
+.reject-btn:disabled,
+.accept-btn:disabled,
+.super-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+
+/* button hover */
+
+.nav-icons:hover,
+.nav-icons:focus {
+    color: orange;
+}
+
+.reject-btn:hover,
+.reject-btn:focus {
+    background-color: #FFE7EF;
+}
+
+.accept-btn:hover,
+.accept-btn:focus {
+    background-color: #DBFFF4;
+}
+
+.undo-btn:hover,
+.undo-btn:focus {
+    background-color: #f4e9d3;
+}
+
+.super-btn:hover,
+.super-btn:focus {
+    background-color: hsl(186, 54%, 82%);
+}
+
+
+/* superlike under development */
+
+
+/* modals */
+.modal-primary {
+    width: 395px;
+    height: 600px;
+    position: absolute;
+    z-index: 1;
+    background-image: linear-gradient(to bottom, #fd746c, #ff9068);
+    margin-left: 4px;
+    border-radius: 10px;
+    padding: 1em;
+    flex-direction: column;
+    align-items: center;
+    display: hidden;
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+.homepage-modal {
+    background-image: linear-gradient(to bottom, #E5E5BE, #CC95C0);
+}
+
+
+@keyframes fade-in {
+    from {
+        opacity: 0.2
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+.unfinished-modal img {
+    width: 100%;
+    object-fit: contain;
+}
+
+.button-primary {
+    width: 75%;
+    padding: 0.5em 0.5em;
+    border-radius: 10px;
+    font-size: 2rem;
+    font-weight: bolder;
+    background-color: #F0CB35;
+    border: 2px solid black;
+}
+
+/* tindog-icon */
+
+.tindog-icon {
+    width: 200px;
+}
