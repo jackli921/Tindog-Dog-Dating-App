@@ -1,5 +1,5 @@
 import dogs from "/data.js"
-import DogClassConstructor from "/Dog.js"
+import Dog from "/Dog.js"
 
 
 let modifiableDogsData = [] // create new array from module
@@ -16,7 +16,7 @@ const tindogLogo = document.getElementById('tindog-logo')
 const homepageModal = document.getElementById('homepage-modal')
 
 const unfinishedModal = document.getElementById('unfinished-modal')
-const expandedProfileContainer = document.getElementById('expanded-profile-container')
+const expandedContainer = document.getElementById('expanded-profile-container')
 
 
 let dogArrayIndex = 0 // dogArrayIndex is initialized to 0 to store the first object
@@ -25,33 +25,32 @@ let currentDog = getNewDog() // call on getNewDog function to get the object dat
 
 function getNewDog(){    
     let nextDogData = modifiableDogsData[dogArrayIndex] 
-    
-    return nextDogData ? new DogClassConstructor(nextDogData): {}     
+    return nextDogData ? new Dog(nextDogData): {}     
 }
 
 function render(){
-    expandedProfileContainer.classList.add('hidden')
+    expandedContainer.classList.add('hidden')
     document.getElementById('profile-container').innerHTML = currentDog.getDogHtml()
-    expandedProfileContainer.innerHTML = currentDog.getAdditionalHtml()
+    expandedContainer.innerHTML = currentDog.getAdditionalHtml()
     handleInfoBtnClick()
 }
 
 render()
 
 function handleInfoBtnClick(){
-    let dogImage = document.getElementById('dog-avatar')
+    let dogAvatar = document.getElementById('dog-avatar')
     let textOverlay = document.getElementById('text-overlay-container')
     let infoBtn = document.getElementById('info-icon')
     let downArrow = document.getElementById('down-arrow')
 
     infoBtn.addEventListener('click', ()=>{
-        dogImage.classList.remove("zoom-out") 
-        dogImage.classList.add("zoom-in")
+        dogAvatar.classList.remove("zoom-out") 
+        dogAvatar.classList.add("zoom-in")
         
         setTimeout(()=>{
             textOverlay.style.display = "none"
-            dogImage.style.height = "400px"
-            expandedProfileContainer.classList.remove('hidden')
+            dogAvatar.style.height = "400px"
+            expandedContainer.classList.remove('hidden')
         },500)
         
         infoBtn.classList.toggle('hidden')
@@ -59,18 +58,18 @@ function handleInfoBtnClick(){
     })
 
     downArrow.addEventListener('click', ()=>{
-        dogImage.classList.remove("zoom-in")
-        dogImage.classList.add("zoom-out")
+        dogAvatar.classList.remove("zoom-in")
+        dogAvatar.classList.add("zoom-out")
         
         setTimeout(()=>{
             textOverlay.style.display = "block"
-            dogImage.style.height = "600px"
+            dogAvatar.style.height = "600px"
 
         },500)
         
         infoBtn.classList.toggle('hidden')
         downArrow.classList.toggle('hidden')
-        expandedProfileContainer.classList.add('hidden')
+        expandedContainer.classList.add('hidden')
     })   
 }
 
@@ -110,9 +109,12 @@ rejectBtn.addEventListener('click', ()=>{
     renderBadge("badge-nope") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
+    console.log(dogArrayIndex)
+    console.log(modifiableDogsData.length)
+    
     if(currentDog.hasBeenSwiped){
-        
-        if(dogArrayIndex != modifiableDogsData.length){
+ 
+        if(dogArrayIndex < modifiableDogsData.length){
             setTimeout(()=>{
                 currentDog = getNewDog()     
                 render()
@@ -137,8 +139,11 @@ acceptBtn.addEventListener('click', ()=>{
     renderBadge("badge-like") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
+    console.log(dogArrayIndex)
+    console.log(modifiableDogsData.length)
+    
     if(currentDog.hasBeenSwiped){
-        if(dogArrayIndex != modifiableDogsData.length){
+        if(dogArrayIndex < modifiableDogsData.length){
             setTimeout(()=>{
                 currentDog = getNewDog()     
                 render()
