@@ -1,6 +1,6 @@
 
-import dogs from "./data.js"
-import Dog from "./Dog.js"
+import dogs from "./data.js";
+import Dog from "./Dog.js";
 
 
 let modifiableDogsData = [] // create new array from module
@@ -15,7 +15,6 @@ const superBtn = document.getElementById('super-btn')
 // take control of page elements and their respective modals
 const tindogLogo = document.getElementById('tindog-logo')
 const homepageModal = document.getElementById('homepage-modal')
-
 const unfinishedModal = document.getElementById('unfinished-modal')
 const expandedContainer = document.getElementById('expanded-profile-container')
 
@@ -29,14 +28,14 @@ function getNewDog(){
     return nextDogData ? new Dog(nextDogData): {}     
 }
 
-function render(){
+function renderProfile(){
     expandedContainer.classList.add('hidden')
     document.getElementById('profile-container').innerHTML = currentDog.getDogHtml()
     expandedContainer.innerHTML = currentDog.getAdditionalHtml()
     handleInfoBtnClick()
 }
+renderProfile()
 
-render()
 
 function handleInfoBtnClick(){
     let dogAvatar = document.getElementById('dog-avatar')
@@ -80,7 +79,7 @@ undoBtn.addEventListener('click', ()=>{
             disableBtns()
             dogArrayIndex -= 1
             currentDog = getNewDog()
-            render()
+            renderProfile()
             enableBtns()
             undoBtn.disabled = false;
             
@@ -96,7 +95,6 @@ undoBtn.addEventListener('click', ()=>{
             }
             
             modifiableDogsData[dogArrayIndex].hasBeenLiked = false  
-            modifiableDogsData[dogArrayIndex].hasBeenLiked = false
         },500)
     }    
 })
@@ -110,20 +108,7 @@ rejectBtn.addEventListener('click', ()=>{
     renderBadge("badge-nope") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
-    
-    if(currentDog.hasBeenSwiped){
- 
-        if(dogArrayIndex < modifiableDogsData.length){
-            setTimeout(()=>{
-                currentDog = getNewDog()     
-                render()
-                enableBtns()
-            },800)
-        }
-        else {
-            setTimeout(()=>{endScreen()}, 800) 
-        }
-    }
+    renderNextDog()
 })
 
 
@@ -138,19 +123,7 @@ acceptBtn.addEventListener('click', ()=>{
     renderBadge("badge-like") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
-    
-    if(currentDog.hasBeenSwiped){
-        if(dogArrayIndex < modifiableDogsData.length){
-            setTimeout(()=>{
-                currentDog = getNewDog()     
-                render()
-                enableBtns()
-            },800)
-        }
-        else {
-            setTimeout(()=>{endScreen()}, 800) 
-        }
-    }
+    renderNextDog()
 })
 
 
@@ -178,6 +151,22 @@ tindogLogo.addEventListener('click', ()=>{
     })
 })
 
+function renderNextDog(){
+        if(currentDog.hasBeenSwiped){
+ 
+        if(dogArrayIndex < modifiableDogsData.length){
+            setTimeout(()=>{
+                currentDog = getNewDog()     
+                renderProfile()
+                enableBtns()
+            },800)
+        }
+        else {
+            setTimeout(()=>{renderEndScreen()}, 800) 
+        }
+    }
+
+}
 
 function renderBadge(badgeName){
     const badgeContainer = document.getElementById("badge-container") 
@@ -196,7 +185,7 @@ function removeBadge(badgeName){
     },500)
 }
 
-function endScreen(){
+function renderEndScreen(){
      expandedContainer.classList.add('hidden')
     document.getElementById('profile-container').innerHTML =
         `
@@ -206,10 +195,8 @@ function endScreen(){
         `
 }
 
-
 // disable input 
 function disableBtns(){
-    // undoBtn.disabled = true 
     acceptBtn.disabled = true // disable both input button when valid button click is detected
     rejectBtn.disabled = true
     superBtn.disabled = true   
@@ -217,7 +204,6 @@ function disableBtns(){
 
 // enable input  
 function enableBtns(){
-    // undoBtn.disabled = false 
     acceptBtn.disabled = false // disable both input button when valid button click is detected
     rejectBtn.disabled = false
     superBtn.disabled = false
