@@ -1,16 +1,17 @@
-# Scrimbafy
-A mobile and desktop responsive splash page for a fictitious company using media queries, relative units, flexbox
+# Dog Dating App
+A mobile dating app mimicking basic interaction of Tinder made for dogs
 
-[Site Live](https://neon-babka-e319d0.netlify.app/)
+[Site Live](https://gilded-cheesecake-3b8383.netlify.app/)
 
 ## Intro
 A training project built to consolidate key concepts I learned from:
 
-**Module 6 - Responsive Design** [Scrimba Frontend Career Path Course](https://scrimba.com/learn/frontend) 
+**Module 7 - Next Level JavaScript** [Scrimba Frontend Career Path Course](https://scrimba.com/learn/frontend) 
 
 ## Features
-- Font size and layout auto-adjust when screen size is 576px +  
-- Highlighted & in-focus text input
+- Like, Nope, Rewind functions
+- Associated CSS animations when above function is triggered
+- Expandable info icon which reveals more info 
 
 ## Demo
  ![](/images/demo.gif)
