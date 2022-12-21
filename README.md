@@ -14,7 +14,7 @@ A training project built to consolidate key concepts I learned from:
 - Expandable info icon which reveals more info 
 
 ## Demo
- ![https://gilded-cheesecake-3b8383.netlify.app/](demo.gif)
+ ![](demo.gif)
 
 
 
