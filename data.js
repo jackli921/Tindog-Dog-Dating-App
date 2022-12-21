@@ -15,19 +15,19 @@ const dogs = [
     {
         name: "Emilia",
         avatar: "/images/dog-emilia.jpg",
-        age: 15,
+        age: 13,
         city: "Berlin",
         country: "Germany",
         likes:"Cats. Snow. Mailman",
         dislikes: "trucks in general",
-        bio: "Kids just gone off to another family - so time to get herself out there / Not used a webcame before.",
+        bio: "Kids just gone off to another family - so time to get herself out there / Not used a webcam before.",
         hasBeenSwiped: false,
         hasBeenLiked: false
     },
     {
         name: "Terry",
         avatar: "/images/dog-terry.jpg",
-        age: 14,
+        age: 9,
         city: "Venice",
         country: "Italy",
         likes:"Walks (not in the rain). Beans. Sausages ",
@@ -39,11 +39,11 @@ const dogs = [
     {
         name: "Koharu",
         avatar: "/images/dog-koharu.jpg",
-        age: 12,
+        age: 3,
         city: "Gifu",
         country: "Japan",
         likes:"Plastic bottles, bottles caps, owner's chopstick",
-        dislikes:"owner's younger sister. Birds",
+        dislikes:"Owner's younger sister. Birds",
         bio: "removing food from the bowl to eat off the floor and chasing a ball once then not giving it back. Get onto desks but not sure how to get off",
         hasBeenSwiped: false,
         hasBeenLiked: false
@@ -99,7 +99,7 @@ const dogs = [
     {
         name: "Bob",
         avatar: "/images/dog-bob.jpg",
-        age: 42,
+        age: 12,
         city: "Phenoix",
         country: "Arizona",
         likes:"my cushion",
@@ -128,7 +128,7 @@ const dogs = [
         country: "Japan",
         likes:"Beds. Tatami. Hotsprings",
         dislikes:"Hard matresses",
-        bio: "True homebody. Can spend 24 hours on the couch. Lived 2 years in Canada. Enjoyed the snow. Moving back to Toronto next year. ",
+        bio: "True homebuddy. Can spend 24 hours on the couch. Lived 2 years in Canada. Enjoyed the snow. Moving back to Toronto next year. ",
         hasBeenSwiped: false,
         hasBeenLiked: false
     },
@@ -139,9 +139,9 @@ const dogs = [
         age: 6,
         city: "Auckland",
         country: "New Zealand",
-          likes:"",
-        dislikes:"",
-        bio: "Loves all mammals. Suspicious of birds. Loves to swim, run, walk but most of all to eat.",
+          likes:"All mammals",
+        dislikes:"Suspicious of birds",
+        bio: "Loves to swim, run, walk but most of all to eat.",
         hasBeenSwiped: false,
         hasBeenLiked: false
     },
