@@ -1,7 +1,7 @@
 # Dog Dating App
 A mobile dating app mimicking basic interaction of Tinder made for dogs
 
-[Site Live](https://gilded-cheesecake-3b8383.netlify.app/)
+[Site Live](https://tiny-mochi-3e1c9c.netlify.app/)
 
 ## Intro
 A training project built to consolidate key concepts I learned from:
