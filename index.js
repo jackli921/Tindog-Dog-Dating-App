@@ -1,12 +1,14 @@
 
-import dogs from "./data.js";
+import dogsData from "./data.js";
 import Dog from "./Dog.js";
+import { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations, displayAuth} from "./welcomeScreen.js";
 
 
 let modifiableDogsData = [] // create new array from module
-Object.assign(modifiableDogsData, dogs)
+Object.assign(modifiableDogsData, dogsData)
 
-// take control of all inpu buttons
+
+// take control of all input buttons
 const acceptBtn = document.getElementById('accept-btn')
 const rejectBtn = document.getElementById('reject-btn')
 const undoBtn = document.getElementById('undo-btn')
@@ -16,7 +18,11 @@ const superBtn = document.getElementById('super-btn')
 const tindogLogo = document.getElementById('tindog-logo')
 const homepageModal = document.getElementById('homepage-modal')
 const unfinishedModal = document.getElementById('unfinished-modal')
-const expandedContainer = document.getElementById('expanded-profile-container')
+const profileContainer = document.getElementById('profile-container')
+
+const profileCard = document.getElementById('profile-card')
+
+const expandedProfile = document.getElementById('expanded-profile')
 
 
 let dogArrayIndex = 0 // dogArrayIndex is initialized to 0 to store the first object
@@ -29,12 +35,18 @@ function getNewDog(){
 }
 
 function renderProfile(){
-    expandedContainer.classList.add('hidden')
-    document.getElementById('profile-container').innerHTML = currentDog.getDogHtml()
-    expandedContainer.innerHTML = currentDog.getAdditionalHtml()
+    console.log(currentDog.getDogHtml());
+    console.log(currentDog.getAdditionalHtml());
+    
+    profileCard.innerHTML = currentDog.getDogHtml()
+    expandedProfile.innerHTML = currentDog.getAdditionalHtml()
     handleInfoBtnClick()
 }
-renderProfile()
+
+displayWelcomeScreen()
+checkUserConsent()
+
+
 
 
 function handleInfoBtnClick(){
@@ -50,7 +62,7 @@ function handleInfoBtnClick(){
         setTimeout(()=>{
             textOverlay.style.display = "none"
             dogAvatar.style.height = "400px"
-            expandedContainer.classList.remove('hidden')
+            expandedProfile.classList.remove('hidden')
         },500)
         
         infoBtn.classList.toggle('hidden')
@@ -69,7 +81,7 @@ function handleInfoBtnClick(){
         
         infoBtn.classList.toggle('hidden')
         downArrow.classList.toggle('hidden')
-        expandedContainer.classList.add('hidden')
+        expandedProfile.classList.add('hidden')
     })   
 }
 
@@ -186,8 +198,8 @@ function removeBadge(badgeName){
 }
 
 function renderEndScreen(){
-     expandedContainer.classList.add('hidden')
-    document.getElementById('profile-container').innerHTML =
+    expandedProfile.classList.add('hidden')
+    profileCard.innerHTML =
         `
         <img class="profile-img final-message final-image" id="dog-avatar" src="images/dog-maru.jpg" alt="">    
         <h2 class="center final-message">😲 No more hot dogs left! 🐕</h2>
@@ -209,3 +221,6 @@ function enableBtns(){
     superBtn.disabled = false
     undoBtn.disabled = false   
 }
+
+
+export {renderProfile, profileCard, profileContainer}

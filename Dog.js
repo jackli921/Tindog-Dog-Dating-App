@@ -28,7 +28,6 @@ class DogClass{
         `
     }
     
-        
     getAdditionalHtml(){
         return `
             <h4 class="name-additional">${this.name},  <span class="age-additional">${this.age}</span></h4>    
