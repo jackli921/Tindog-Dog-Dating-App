@@ -1,7 +1,7 @@
 
 import dogsData from "./data.js";
 import Dog from "./Dog.js";
-import { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations } from "./welcomeScreen.js";
+import { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations, displayAuth} from "./welcomeScreen.js";
 
 
 let modifiableDogsData = [] // create new array from module
@@ -21,7 +21,6 @@ const unfinishedModal = document.getElementById('unfinished-modal')
 const profileContainer = document.getElementById('profile-container')
 
 const profileCard = document.getElementById('profile-card')
-
 const expandedProfile = document.getElementById('expanded-profile')
 
 
@@ -37,7 +36,7 @@ function getNewDog(){
 function renderProfile(){
     profileCard.innerHTML = currentDog.getDogHtml()
     expandedProfile.innerHTML = currentDog.getAdditionalHtml()
-    handleInfoBtnClick()
+    // handleInfoBtnClick()
 }
 
 displayWelcomeScreen()
@@ -218,4 +217,4 @@ function enableBtns(){
 }
 
 
-export {renderProfile, profileCard, profileContainer}
+export {renderProfile, profileCard, profileContainer, expandedProfile}

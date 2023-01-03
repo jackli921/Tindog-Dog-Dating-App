@@ -1,5 +1,5 @@
 
-import {renderProfile, profileContainer, profileCard} from './index.js'
+import {renderProfile, profileContainer, profileCard, expandedProfile} from './index.js'
 
 function displayWelcomeScreen(){    
     profileContainer.classList.add('welcome-screen')
@@ -52,22 +52,22 @@ function displayWelcomeAnimations(){
     profileContainer.classList.add('slow-zoom') 
     // gotta remove the opacity =1 property in slow-zoom class to make anything visible
 
-    // renderProfile()
+    setTimeout(() => {
+        displayAuth()
+    }, 2200);
+
+}
+
+function displayAuth(){
     profileContainer.classList.remove('slow-zoom') 
     profileContainer.classList.remove('welcome-screen')  
     profileContainer.style.background = "none"
-    profileContainer.innerHTML =  `
+    profileContainer.innerHTML = `
         <div id="profile-card"></div>
         <div class="expanded-profile-container hidden" id="expanded-profile"></div>
-         `
-    renderProfile()
-}
+    `
 
-// function displayAuth(){
-//     profileContainer.classList.remove('slow-zoom') 
-//     profileContainer.classList.remove('welcome-screen')  
-//     profileContainer.style.background = "none"
-    
+    renderProfile()
     // profileContainer.classList.add('sliding-background-animation')
 
     // profileContainer.innerHTML = `
@@ -75,7 +75,6 @@ function displayWelcomeAnimations(){
     
     // `
 
+}
 
-// }
-
-export { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations}
+export { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations, displayAuth }
