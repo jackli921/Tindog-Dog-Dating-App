@@ -53,20 +53,21 @@ function displayWelcomeAnimations(){
     // gotta remove the opacity =1 property in slow-zoom class to make anything visible
 
     // renderProfile()
-    setTimeout(() => {
-        profileContainer.innerHTML =  `
-        <div id="profile-card"></div>
-        <div class="expanded-profile-container hidden" id="expanded-profile"></div>
-         `
-        displayAuth()
-    }, 2200);
-}
-
-function displayAuth(){
     profileContainer.classList.remove('slow-zoom') 
     profileContainer.classList.remove('welcome-screen')  
     profileContainer.style.background = "none"
+    profileContainer.innerHTML =  `
+        <div id="profile-card"></div>
+        <div class="expanded-profile-container hidden" id="expanded-profile"></div>
+         `
     renderProfile()
+}
+
+// function displayAuth(){
+//     profileContainer.classList.remove('slow-zoom') 
+//     profileContainer.classList.remove('welcome-screen')  
+//     profileContainer.style.background = "none"
+    
     // profileContainer.classList.add('sliding-background-animation')
 
     // profileContainer.innerHTML = `
@@ -75,6 +76,6 @@ function displayAuth(){
     // `
 
 
-}
+// }
 
-export { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations, displayAuth}
+export { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations}

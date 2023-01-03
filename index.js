@@ -1,7 +1,7 @@
 
 import dogsData from "./data.js";
 import Dog from "./Dog.js";
-import { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations, displayAuth} from "./welcomeScreen.js";
+import { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations } from "./welcomeScreen.js";
 
 
 let modifiableDogsData = [] // create new array from module
@@ -35,9 +35,6 @@ function getNewDog(){
 }
 
 function renderProfile(){
-    console.log(currentDog.getDogHtml());
-    console.log(currentDog.getAdditionalHtml());
-    
     profileCard.innerHTML = currentDog.getDogHtml()
     expandedProfile.innerHTML = currentDog.getAdditionalHtml()
     handleInfoBtnClick()
@@ -45,8 +42,6 @@ function renderProfile(){
 
 displayWelcomeScreen()
 checkUserConsent()
-
-
 
 
 function handleInfoBtnClick(){
