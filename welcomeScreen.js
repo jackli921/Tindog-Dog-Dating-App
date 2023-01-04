@@ -2,11 +2,10 @@
 import {renderProfile, profileContainer, profileCard, expandedProfile} from './index.js'
 
 function displayWelcomeScreen(){    
-    profileContainer.classList.add('welcome-screen')
-    profileContainer.style.backgroundImage = "url('./images/welcome-bg.jpg')"
+    profileCard.classList.add('welcome-screen')
+    profileCard.style.backgroundImage = "url('./images/welcome-bg.jpg')"
 
-    profileContainer.innerHTML = `
-
+    profileCard.innerHTML = `
         <img class="tindog-icon-welcome fade" id="tindog-icon-welcome" src="./images/tindog-icon.png">
          
         <i class="fa-solid fa-heart heart-icon hidden" id="heart-icon"></i>
@@ -49,7 +48,7 @@ function displayWelcomeAnimations(){
     heartIcon.classList.add("fade-in")
     document.querySelector("#tindog-icon-welcome").classList.add("move-left")
     document.querySelector("#consent-modal").classList.add("move-right")
-    profileContainer.classList.add('slow-zoom') 
+    profileCard.classList.add('slow-zoom') 
     // gotta remove the opacity =1 property in slow-zoom class to make anything visible
 
     setTimeout(() => {
@@ -59,13 +58,10 @@ function displayWelcomeAnimations(){
 }
 
 function displayAuth(){
-    profileContainer.classList.remove('slow-zoom') 
-    profileContainer.classList.remove('welcome-screen')  
-    profileContainer.style.background = "none"
-    profileContainer.innerHTML = `
-        <div id="profile-card"></div>
-        <div class="expanded-profile-container hidden" id="expanded-profile"></div>
-    `
+    profileCard.classList.remove('slow-zoom') 
+    profileCard.classList.remove('welcome-screen')  
+    profileCard.style.background = "none"
+
 
     renderProfile()
     // profileContainer.classList.add('sliding-background-animation')

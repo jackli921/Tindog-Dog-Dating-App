@@ -36,7 +36,7 @@ function getNewDog(){
 function renderProfile(){
     profileCard.innerHTML = currentDog.getDogHtml()
     expandedProfile.innerHTML = currentDog.getAdditionalHtml()
-    // handleInfoBtnClick()
+    handleInfoBtnClick()
 }
 
 displayWelcomeScreen()
