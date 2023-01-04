@@ -110,11 +110,11 @@ button {
 
 @keyframes slow-zoom {
     0%{
-        background-size: 100%;
+        background-size: 120%;
         opacity: 1;
     }
     70%{
-        background-size: 95%;
+        background-size: 100%;
         opacity: 0.8;
     }
     100%{
@@ -412,8 +412,6 @@ button {
 }
 
 
-#dog-name:hover,
-#dog-location:hover,
 #info-icon:hover {
     color: orange;
     cursor: pointer;
