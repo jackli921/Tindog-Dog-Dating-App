@@ -1,10 +1,12 @@
 
-import {renderProfile, profileContainer, profileCard, expandedProfile} from './index.js'
+import {renderProfile, profileContainer, profileCard, expandedProfile, disableBtns, undoBtn} from './index.js'
 
-function displayWelcomeScreen(){    
+function displayWelcomeScreen(){
+    disableBtns()
+    undoBtn.disabled = "true"    
+    
     profileCard.classList.add('welcome-screen')
     profileCard.style.backgroundImage = "url('./images/welcome-bg.jpg')"
-
     profileCard.innerHTML = `
         <img class="tindog-icon-welcome fade" id="tindog-icon-welcome" src="./images/tindog-icon.png">
          

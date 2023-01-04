@@ -4,8 +4,7 @@ import Dog from "./Dog.js";
 import { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations, displayAuth} from "./welcomeScreen.js";
 
 
-let modifiableDogsData = [] // create new array from module
-Object.assign(modifiableDogsData, dogsData)
+let modifiableDogsData = dogsData.sort(() => Math.random() - 0.5);
 
 
 // take control of all input buttons
@@ -18,10 +17,11 @@ const superBtn = document.getElementById('super-btn')
 const tindogLogo = document.getElementById('tindog-logo')
 const homepageModal = document.getElementById('homepage-modal')
 const unfinishedModal = document.getElementById('unfinished-modal')
-const profileContainer = document.getElementById('profile-container')
 
+const profileContainer = document.getElementById('profile-container')
 const profileCard = document.getElementById('profile-card')
 const expandedProfile = document.getElementById('expanded-profile')
+
 
 
 let dogArrayIndex = 0 // dogArrayIndex is initialized to 0 to store the first object
@@ -29,6 +29,7 @@ let currentDog = getNewDog() // call on getNewDog function to get the object dat
 
 
 function getNewDog(){    
+
     let nextDogData = modifiableDogsData[dogArrayIndex] 
     return nextDogData ? new Dog(nextDogData): {}     
 }
@@ -217,4 +218,4 @@ function enableBtns(){
 }
 
 
-export {renderProfile, profileCard, profileContainer, expandedProfile}
+export {renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn}
