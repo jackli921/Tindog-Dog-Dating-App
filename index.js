@@ -1,12 +1,11 @@
 
 import {dogsData, fakeDogsData} from "./data.js";
 import Dog from "./Dog.js";
-import { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage} from "./welcomeScreen.js";
+import { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage, renderInstruction} from "./welcomeScreen.js";
 
+let realDogData = dogsData.sort(() => Math.random() - 0.5)
 
-
-let modifiableDogsData = dogsData.sort(() => Math.random() - 0.5);
-
+let modifiableDogsData = [...fakeDogsData, ...realDogData];
 
 // take control of all input buttons
 const acceptBtn = document.getElementById('accept-btn')
@@ -37,6 +36,7 @@ function getNewDog(){
 function renderProfile(){
     profileCard.innerHTML = currentDog.getDogHtml()
     expandedProfile.innerHTML = currentDog.getAdditionalHtml()
+    renderInstruction()
     handleInfoBtnClick()
 }
 
@@ -81,7 +81,7 @@ function handleInfoBtnClick(){
 }
 
 undoBtn.addEventListener('click', ()=>{
-    if(dogArrayIndex > 0){
+    if(dogArrayIndex => 3){
         setTimeout(()=>{
             disableBtns()
             dogArrayIndex -= 1
@@ -129,21 +129,21 @@ acceptBtn.addEventListener('click', ()=>{
         
     renderBadge("badge-like") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
-    
     renderNextDog()
 })
 
 
 superBtn.addEventListener('click',()=>{
     disableBtns()
-    undoBtn.disabled = true;
-    unfinishedModal.style.display = "flex"
+    currentDog.hasBeenSwiped = true     // change the swiped and liked states to true
+    currentDog.hasBeenLiked = true   
     
-    document.getElementById('close-button').addEventListener('click',()=>{
-        unfinishedModal.style.display = "none"
-        enableBtns()
-        undoBtn.disabled = true;
-    })
+    modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
+    modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
+        
+    renderBadge("badge-like") // display liked badge using DOM
+    dogArrayIndex += 1 // increase object index by one
+    renderNextDog()
 })
 
 tindogLogo.addEventListener('click', ()=>{
@@ -165,7 +165,11 @@ function renderNextDog(){
             setTimeout(()=>{
                 currentDog = getNewDog()     
                 renderProfile()
+                
+                if(dogArrayIndex > 4){
                 enableBtns()
+                }
+                
             },800)
         }
         else {
@@ -218,4 +222,4 @@ function enableBtns(){
 }
 
 
-export {renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}
+export {renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}

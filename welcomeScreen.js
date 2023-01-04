@@ -1,5 +1,5 @@
 
-import {renderProfile, profileContainer, profileCard, expandedProfile, disableBtns, undoBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick} from './index.js'
+import {renderProfile, profileContainer, profileCard, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick, rejectBtn} from './index.js'
 import { fakeDogsData } from './data.js'
 import Dog from './Dog.js'
 
@@ -28,6 +28,8 @@ function renderIdlePage(){
         </div>
     `
 }
+
+
 
 function checkUserConsent() {
     const consentCheckbox = document.querySelector('#consent-checkbox')
@@ -64,9 +66,7 @@ function renderWelcomeAnimations(){
 function renderWelcomePage(){
     profileCard.classList.remove('slow-zoom') 
     
-
     profileCard.style.backgroundImage = "url('./images/welcome2-bg.jpg')"
-
     profileContainer.classList.add('sliding-background-animation')
 
     profileCard.innerHTML = `
@@ -81,22 +81,44 @@ function renderWelcomePage(){
 
 function renderTutorial(){
     profileCard.classList.remove('welcome-screen')  
-
-    let currentDog = getNewFakeDog()
-    let modifiableDogsData = fakeDogsData
-    profileCard.innerHTML = currentDog.getDogHtml()
-    expandedProfile.innerHTML = currentDog.getAdditionalHtml()
-
+    renderProfile()
     handleInfoBtnClick()
+}
+
+function renderInstruction(){
+    const instructionEl = document.querySelector('#instruction')
+    if(dogArrayIndex === 0){
+        instructionEl.innerHTML = `
+        <p class="instruction-text">Press <img "instruction-icons" src="./images/icon-accept.png"> to like a dog!</p>
+        `
+        acceptBtn.disabled = false
+    }
+    if(dogArrayIndex === 1){
+        instructionEl.innerHTML = `
+        <p class="instruction-text">Press <img "instruction-icons" src="./images/icon-reject.png"> to reject a dog!</p>
+        `
+        rejectBtn.disabled = false
+        
+    }
+    if(dogArrayIndex === 2){
+        instructionEl.innerHTML = `
+        <p class="instruction-text">Fell in love? Press <img class = "instruction-icons" src='./images/icon-super.png'> to superlike a dog!</p>
+    `
+        superBtn.disabled = false
+    }
+    if(dogArrayIndex === 3){
+        instructionEl.innerHTML = `
+        <p class="instruction-text">Regretting your decision? Press
+         <img src="./images/icon-undo.png" class="instruction-icons"> to go back!</p>
+    `
+        undoBtn.disabled = false
+
+    }
+
 
 }
 
 
-function getNewFakeDog(){
-    let nextFakeDogData = fakeDogsData[dogArrayIndex]
-    return nextFakeDogData ? new Dog(nextFakeDogData):{}
-}
 
 
-
-export { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage }
+export { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage, renderInstruction }
