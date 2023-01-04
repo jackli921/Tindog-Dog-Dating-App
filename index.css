@@ -65,6 +65,11 @@ button {
     cursor: pointer;
 }
 
+.fa-dog{
+    font-size: 33px;
+    color: #c9d0d6;
+}
+
 /* welcome screen */
 .welcome-screen{
     display: flex;
@@ -80,6 +85,17 @@ button {
     background-position: center;
     overflow: hidden scroll;
 
+}
+
+.text-primary{
+   width:80%;
+   font-weight: 600;
+   font-size: 1.2em;
+   margin: 0 auto; 
+   padding: 1em;
+   background: linear-gradient(to bottom, #fd746c, #ff9068);
+   border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* mains section */
@@ -120,7 +136,17 @@ button {
 }
 
 .sliding-background-animation{
-    animation: slide 1s alternate infinite;
+    animation: slide 10s alternate infinite ease-in-out;
+}
+
+@keyframes slide {
+    0% {
+        background-position: 0% 0;
+    }
+
+    100% {
+        background-position: 100% 0;
+    }
 }
 
 .move-left{
@@ -176,14 +202,6 @@ button {
     }
 }
 
-@keyframes slide {
-    0% {
-        background-position: 0% 0;
-    }
-    100% {
-        background-position: 100% 0;
-    }
-}
 
 .profile-container >.final-message {
     padding-bottom: 1.2em;
@@ -590,7 +608,7 @@ button {
 
 .consent-modal{
     padding: 1em;
-    width:90%;
+    width:75%;
     height:28%;
     background: linear-gradient(to right, #fd746c, #ff9068);
     border-radius: 10px;
@@ -609,6 +627,8 @@ button {
 }
 
 .consent-input-box{
+    margin: 0 auto;
+    width:80%;
     display: flex;
     justify-content: center;
     gap: 1em;
@@ -630,12 +650,16 @@ button {
     padding: 0.7em 2em;
     border: 0;
     border-radius: 10px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 1.3rem;
     
 }
 
-.cool-btn-gradient{
+.continue-btn:hover{
+    background: linear-gradient(to left, #6e45e2, #88d3ce);
+}
+
+.cool-gradient{
     background: linear-gradient(to left, #6e45e2, #88d3ce);
     /* background: linear-gradient(to right, #fec5ec, #9795f0); */
 }
@@ -673,12 +697,12 @@ button {
 
 .slider:before { /*create an element before the slider: i.e. the sliding circle*/
     position: absolute;
+    background-image: url('./images/paw.svg');
     content: "";
     height: 26px;
     width: 26px;
     left: 4px;
-    bottom: 4px;
-    background-color: white;
+    bottom: 4px;    
     -webkit-transition: .4s;
     transform: .4s;
 }

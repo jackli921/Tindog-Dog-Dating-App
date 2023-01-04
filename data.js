@@ -1,17 +1,5 @@
-const dogs = [
+const dogsData = [
     
-    {
-        name: "Rex",
-        avatar: "/images/dog-rex.jpg",
-        age: 2,
-        city: "Taxes",
-        country: "United States",
-        likes:"Art. Literature. Natural wine. Yoga",
-        dislikes:"Cats larger than myself",
-        bio: "Swipe left if you don't like sweet potatoes",
-        hasBeenSwiped: false,
-        hasBeenLiked: false
-    },
     {
         name: "Emilia",
         avatar: "/images/dog-emilia.jpg",
@@ -84,18 +72,7 @@ const dogs = [
         hasBeenSwiped: false,
         hasBeenLiked: false
     },
-    {
-        name: "Bella",
-        avatar: "/images/dog-bella.jpg",
-        age: 3,
-        city: "Barcelona",
-        country: "Spain",
-        likes:"Tapas",
-        dislikes:"home alone",
-        bio: "Born and raised in London. Lives in Barcelona. Enjoys running around the garden and sunbathing. I’d love to have kids in the next two years. ",
-        hasBeenSwiped: false,
-        hasBeenLiked: false
-    },
+
     {
         name: "Bob",
         avatar: "/images/dog-bob.jpg",
@@ -108,19 +85,8 @@ const dogs = [
         hasBeenSwiped: false,
         hasBeenLiked: false
     },
+
     {
-        name: "Señor Don Perro",
-        avatar: "/images/dog-teddy.jpg",
-        age: 11,
-        city: "Buenos Aires",
-        country: "Argentina",
-        likes:"cafe, leche, te",
-        dislikes:"mucho calor o mucho frío",
-        bio: "¿Cómo te va? Me gusto los gatos muchisimo. Desliza hacia la izquierda si no te gusta bailar.",
-        hasBeenSwiped: false,
-        hasBeenLiked: false
-    },
-        {
         name: "Doge",
         avatar: "/images/dog-doge.jpg",
         age: 5,
@@ -148,4 +114,56 @@ const dogs = [
 
 ]
 
-export default dogs
+const fakeDogsData = [
+    
+    {
+        name: "Fake Dog",
+        avatar: "/images/dog-rex.jpg",
+        age: 5,
+        city: "Taxes",
+        country: "United States",
+        likes:"Art. Literature. Natural wine. Yoga",
+        dislikes:"Cats larger than myself",
+        bio: "Swipe left if you don't like sweet potatoes",
+        hasBeenSwiped: false,
+        hasBeenLiked: false
+    },
+    {
+        name: "Another fake dog",
+        avatar: "/images/dog-bella.jpg",
+        age: 3,
+        city: "Barcelona",
+        country: "Spain",
+        likes:"Tapas",
+        dislikes:"home alone",
+        bio: "Born and raised in London. Lives in Barcelona. Enjoys running around the garden and sunbathing. I’d love to have kids in the next two years. ",
+        hasBeenSwiped: false,
+        hasBeenLiked: false
+    },
+    {
+        name: "Yet another fake dog",
+        avatar: "/images/dog-teddy.jpg",
+        age: 11,
+        city: "Buenos Aires",
+        country: "Argentina",
+        likes:"cafe, leche, te",
+        dislikes:"mucho calor o mucho frío",
+        bio: "¿Cómo te va? Me gusto los gatos muchisimo. Desliza hacia la izquierda si no te gusta bailar.",
+        hasBeenSwiped: false,
+        hasBeenLiked: false
+    },
+    {
+        name: "Yet another fake dog",
+        avatar: "/images/dog-rex.jpg",
+        age: 1,
+        city: "Taxes",
+        country: "United States",
+        likes:"Art. Literature. Natural wine. Yoga",
+        dislikes:"Cats larger than myself",
+        bio: "Swipe left if you don't like sweet potatoes",
+        hasBeenSwiped: false,
+        hasBeenLiked: false
+    },
+]
+
+export { dogsData, fakeDogsData }

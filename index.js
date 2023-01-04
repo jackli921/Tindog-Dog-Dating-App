@@ -1,7 +1,8 @@
 
-import dogsData from "./data.js";
+import {dogsData, fakeDogsData} from "./data.js";
 import Dog from "./Dog.js";
-import { displayWelcomeScreen, checkUserConsent, displayWelcomeAnimations, displayAuth} from "./welcomeScreen.js";
+import { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage} from "./welcomeScreen.js";
+
 
 
 let modifiableDogsData = dogsData.sort(() => Math.random() - 0.5);
@@ -29,7 +30,6 @@ let currentDog = getNewDog() // call on getNewDog function to get the object dat
 
 
 function getNewDog(){    
-
     let nextDogData = modifiableDogsData[dogArrayIndex] 
     return nextDogData ? new Dog(nextDogData): {}     
 }
@@ -40,7 +40,7 @@ function renderProfile(){
     handleInfoBtnClick()
 }
 
-displayWelcomeScreen()
+renderIdlePage()
 checkUserConsent()
 
 
@@ -218,4 +218,4 @@ function enableBtns(){
 }
 
 
-export {renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn}
+export {renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}
