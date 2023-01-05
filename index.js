@@ -2,6 +2,7 @@
 import {dogsData, fakeDogsData} from "./data.js";
 import Dog from "./Dog.js";
 import { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage, renderInstruction} from "./welcomeScreen.js";
+import {renderScrollInstruction, renderPressDownBtnInstruction, renderFinalInstruction} from "./instructions.js"
 
 let realDogData = dogsData.sort(() => Math.random() - 0.5)
 
@@ -21,8 +22,10 @@ const unfinishedModal = document.getElementById('unfinished-modal')
 const profileContainer = document.getElementById('profile-container')
 const profileCard = document.getElementById('profile-card')
 const expandedProfile = document.getElementById('expanded-profile')
+// share modal
 
-
+const closeShareModalBtn = document.querySelector('#close-share-modal-btn')
+const shareModal = document.querySelector('#share-modal')
 
 let dogArrayIndex = 0 // dogArrayIndex is initialized to 0 to store the first object
 let currentDog = getNewDog() // call on getNewDog function to get the object data
@@ -36,21 +39,30 @@ function getNewDog(){
 function renderProfile(){
     profileCard.innerHTML = currentDog.getDogHtml()
     expandedProfile.innerHTML = currentDog.getAdditionalHtml()
+    // console.log(currentDog)
     renderInstruction()
     handleInfoBtnClick()
+    handleShareBtnClick()
 }
 
 renderIdlePage()
 checkUserConsent()
 
 
+
 function handleInfoBtnClick(){
+
+
     let dogAvatar = document.getElementById('dog-avatar')
     let textOverlay = document.getElementById('text-overlay-container')
     let infoBtn = document.getElementById('info-icon')
     let downArrow = document.getElementById('down-arrow')
 
-    infoBtn.addEventListener('click', ()=>{
+    if(dogArrayIndex < 2 || dogArrayIndex === 3 || currentDog.hasBeenSwiped === false ){
+        infoBtn.classList.add('not-allowed')
+    }
+    else{
+        infoBtn.addEventListener('click', ()=>{
         dogAvatar.classList.remove("zoom-out") 
         dogAvatar.classList.add("zoom-in")
         
@@ -62,6 +74,7 @@ function handleInfoBtnClick(){
         
         infoBtn.classList.toggle('hidden')
         downArrow.classList.toggle('hidden') 
+        renderScrollInstruction()
     })
 
     downArrow.addEventListener('click', ()=>{
@@ -77,8 +90,52 @@ function handleInfoBtnClick(){
         infoBtn.classList.toggle('hidden')
         downArrow.classList.toggle('hidden')
         expandedProfile.classList.add('hidden')
-    })   
+        renderFinalInstruction()
+    })  
+
+    }
 }
+
+function handleShareBtnClick(){
+    const shareBtn = document.querySelector('#share-btn')
+    const isSampleDog = currentDog.hasBeenSwiped === false && dogArrayIndex === 2
+    const isRealDog = dogArrayIndex === 0 || dogArrayIndex === 1 || dogArrayIndex === 3
+
+    if (isSampleDog || isRealDog){
+        return
+    }
+
+    const title = document.title;
+    const url = document.querySelector('link[rel=canonical]') ? document.querySelector('link[rel=canonical]').href : document.location.href;
+    
+    shareBtn.addEventListener('click',()=>{
+
+        console.log("share btn clicked!")
+        if(navigator.share){
+            navigator.share({
+                title:title, 
+                url:url
+            }).then(()=>{
+                console.log("Thanks for sharing!")
+            })
+            .catch(console.error)
+        }else{
+            shareModal.style.display = "flex"
+            const shareModalText = document.querySelector('#share-modal-text-container')
+            shareModalText.innerHTML = `<p class="share-modal-text">
+            Share a direct link to ${currentDog.name}'s profile on social media! </p>
+            `
+        }
+    })
+    
+}
+
+
+closeShareModalBtn.addEventListener('click',()=>{
+    shareModal.style.display = "none"
+    renderPressDownBtnInstruction()
+})
+
 
 undoBtn.addEventListener('click', ()=>{
     if(dogArrayIndex => 3){
@@ -102,7 +159,9 @@ undoBtn.addEventListener('click', ()=>{
             }
             
             modifiableDogsData[dogArrayIndex].hasBeenLiked = false  
-        },500)
+            modifiableDogsData[dogArrayIndex].hasBeenSwiped = true
+            console.log(currentDog)  
+        },200)
     }    
 })
 
@@ -170,10 +229,10 @@ function renderNextDog(){
                 enableBtns()
                 }
                 
-            },800)
+            },400)
         }
         else {
-            setTimeout(()=>{renderEndScreen()}, 800) 
+            setTimeout(()=>{renderEndScreen()}, 400) 
         }
     }
 
@@ -222,4 +281,4 @@ function enableBtns(){
 }
 
 
-export {renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}
+export {currentDog, renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}

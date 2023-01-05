@@ -40,6 +40,19 @@ button {
     display: none;
 }
 
+.fade-in{
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
+
+.not-allowed{
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+    
+}
+
 .bold {
     font-weight: bolder;
     font-size: 1.2em;
@@ -289,13 +302,13 @@ button {
 
 .spin-in {
     animation-name: spin-in;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
 }
 
 .spin-out {
     animation-name: spin-out;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
 
 }
@@ -449,9 +462,13 @@ button {
 }
 
 
-#info-icon:hover {
+/* #info-icon:hover {
     color: orange;
     cursor: pointer;
+} */
+
+.primary-icon{
+    width:40px;
 }
 
 #info-icon,
@@ -463,7 +480,6 @@ button {
     cursor: pointer
 }
 
-#info-icon:hover,
 #down-arrow:hover,
 .nav-icons:hover,
 .nav-icons:active {
@@ -487,6 +503,24 @@ button {
 }
 
 /* buttons */
+
+.share-icon{
+    width:34px
+}
+
+.share-btn{
+    display: flex;
+    margin: 1em auto;
+    font-size: 1.3rem;
+    padding: 0.7em 2em;
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background: linear-gradient(to bottom, #fd746c, #ff9068);
+}
+.share-btn:hover{
+    opacity: 0.8;
+}
 .btn-primary {
     height: 60px;
     width: 60px;
@@ -570,22 +604,38 @@ button {
 
 
 /* modals */
-.modal-primary {
-    width: 395px;
-    height: 600px;
-    position: absolute;
-    z-index: 1;
-    background-image: linear-gradient(to bottom, #fd746c, #ff9068);
-    margin-left: 4px;
-    border-radius: 10px;
-    padding: 1em;
+.share-modal {
+    display: flex;
     flex-direction: column;
     align-items: center;
-    display: hidden;
+    justify-items:center;
+    gap:1em;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 360px;
+    background: linear-gradient(to right, #fd746c, #ff9068);
+    border-radius: 10px;
+    display: none;
     animation-name: fade-in;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
 }
+
+.share-modal-text{
+    padding: 1em 1em 0 1em;
+    font-size: 1.25rem;
+}
+.share-modal-social-media-container{
+    width:70%;
+    gap:0.5em;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 .homepage-modal {
     background-image: linear-gradient(to bottom, #E5E5BE, #CC95C0);
@@ -602,10 +652,6 @@ button {
     }
 }
 
-.unfinished-modal img {
-    width: 100%;
-    object-fit: contain;
-}
 
 .button-primary {
     width: 75%;
@@ -628,13 +674,16 @@ button {
     padding-bottom: 13em;
 }
 
-.consent-modal{
+.primary-modal{
     padding: 1em;
     width:75%;
     height:28%;
     background: linear-gradient(to right, #fd746c, #ff9068);
     border-radius: 10px;
     margin-bottom: 3em;
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
 }
 
 .welcome-text {
@@ -667,6 +716,7 @@ button {
 
 /* continue button */
 .continue-btn{
+    width:250px;
     display: block;
     margin:0 auto;
     padding: 0.7em 2em;

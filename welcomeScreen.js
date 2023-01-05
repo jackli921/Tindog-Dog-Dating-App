@@ -1,5 +1,5 @@
 
-import {renderProfile, profileContainer, profileCard, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick, rejectBtn} from './index.js'
+import {currentDog, renderProfile, profileContainer, profileCard, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick, rejectBtn} from './index.js'
 import { fakeDogsData } from './data.js'
 import Dog from './Dog.js'
 
@@ -13,7 +13,7 @@ function renderIdlePage(){
         <img class="tindog-icon-welcome fade" id="tindog-icon-welcome" src="./images/tindog-icon.png">
          
         <i class="fa-solid fa-heart heart-icon hidden" id="heart-icon"></i>
-        <div class="consent-modal fade" id="consent-modal">
+        <div class="primary-modal fade" id="consent-modal">
             <p class="welcome-text terms">To continue using our service, please confirm that you are not a cat</p>
 
             <div class="consent-input-box">
@@ -87,6 +87,8 @@ function renderTutorial(){
 
 function renderInstruction(){
     const instructionEl = document.querySelector('#instruction')
+    console.log(currentDog)
+
     if(dogArrayIndex === 0){
         instructionEl.innerHTML = `
         <p class="instruction-text">Press <img "instruction-icons" src="./images/icon-accept.png"> to like a dog!</p>
@@ -95,16 +97,17 @@ function renderInstruction(){
     }
     if(dogArrayIndex === 1){
         instructionEl.innerHTML = `
-        <p class="instruction-text">Press <img "instruction-icons" src="./images/icon-reject.png"> to reject a dog!</p>
-        `
-        rejectBtn.disabled = false
-        
-    }
-    if(dogArrayIndex === 2){
-        instructionEl.innerHTML = `
         <p class="instruction-text">Fell in love? Press <img class = "instruction-icons" src='./images/icon-super.png'> to superlike a dog!</p>
     `
         superBtn.disabled = false
+    }
+
+    if(dogArrayIndex === 2 && currentDog.hasBeenSwiped == false){
+        instructionEl.innerHTML = `
+        <p class="instruction-text">Press <img "instruction-icons" src="./images/icon-reject.png"> to reject a dog!</p>
+        `
+        rejectBtn.disabled = false
+    
     }
     if(dogArrayIndex === 3){
         instructionEl.innerHTML = `
@@ -114,11 +117,21 @@ function renderInstruction(){
         undoBtn.disabled = false
 
     }
+    if(dogArrayIndex === 2 && currentDog.hasBeenSwiped == true){
+        instructionEl.innerHTML = `
+        <p class="instruction-text">It's not all about the looks! Click <img src="/images/info-icon.png" class="primary-icon"> to read the profile!</p>
+        `
+    }
 
+    if(dogArrayIndex === 2 && currentDog.hasBeenSwiped == true && expandedProfile.style.display === "block"){
+        instructionEl.innerHTML = `
+        <p class="instruction-text">Click <img src="/images/down-arrow.png" class="primary-icon"> to see the full profile again!</p>
+        `
+    }
 
 }
 
 
 
 
-export { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage, renderInstruction }
+export { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage, renderInstruction}

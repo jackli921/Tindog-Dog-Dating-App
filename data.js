@@ -153,7 +153,7 @@ const fakeDogsData = [
         hasBeenLiked: false
     },
     {
-        name: "Yet another fake dog",
+        name: "One last fake dog",
         avatar: "/images/dog-rex.jpg",
         age: 1,
         city: "Taxes",
