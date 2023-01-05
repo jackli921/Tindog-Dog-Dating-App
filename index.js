@@ -2,7 +2,7 @@
 import {dogsData, fakeDogsData} from "./data.js";
 import Dog from "./Dog.js";
 import { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage, renderInstruction} from "./welcomeScreen.js";
-import {renderScrollInstruction, renderPressDownBtnInstruction, renderFinalInstruction} from "./instructions.js"
+import {renderScrollInstruction, renderPressDownBtnInstruction, renderFinalInstruction } from "./instructions.js"
 
 let realDogData = dogsData.sort(() => Math.random() - 0.5)
 
@@ -39,14 +39,33 @@ function getNewDog(){
 function renderProfile(){
     profileCard.innerHTML = currentDog.getDogHtml()
     expandedProfile.innerHTML = currentDog.getAdditionalHtml()
-    // console.log(currentDog)
-    renderInstruction()
+    
+    if(dogArrayIndex < 4 ){
+        renderInstruction()
+    }else{
+        document.querySelector('#instruction').style.display = "none"
+    }
+    
+    if (dogArrayIndex === 4){
+         undoBtn.disabled = true;
+    } 
+
     handleInfoBtnClick()
     handleShareBtnClick()
 }
 
 renderIdlePage()
 checkUserConsent()
+
+function renderRealDogArr(){
+    
+
+    enableBtns()
+    dogArrayIndex += 2
+    currentDog = getNewDog()
+
+    renderProfile()
+}
 
 
 
@@ -58,7 +77,7 @@ function handleInfoBtnClick(){
     let infoBtn = document.getElementById('info-icon')
     let downArrow = document.getElementById('down-arrow')
 
-    if(dogArrayIndex < 2 || dogArrayIndex === 3 || currentDog.hasBeenSwiped === false ){
+    if(dogArrayIndex < 2 || currentDog.name === "Yet another fake dog" && currentDog.hasBeenSwiped === false || dogArrayIndex === 3){
         infoBtn.classList.add('not-allowed')
     }
     else{
@@ -131,6 +150,8 @@ function handleShareBtnClick(){
 }
 
 
+
+
 closeShareModalBtn.addEventListener('click',()=>{
     shareModal.style.display = "none"
     renderPressDownBtnInstruction()
@@ -138,19 +159,14 @@ closeShareModalBtn.addEventListener('click',()=>{
 
 
 undoBtn.addEventListener('click', ()=>{
-    if(dogArrayIndex => 3){
+    if(dogArrayIndex >= 5 || dogArrayIndex === 3){
         setTimeout(()=>{
             disableBtns()
             dogArrayIndex -= 1
             currentDog = getNewDog()
-            renderProfile()
-            enableBtns()
+            enableBtns()            
             undoBtn.disabled = false;
-            
-            if (dogArrayIndex === 0){
-                undoBtn.disabled = true;
-            } 
-            
+            renderProfile()            
             if (currentDog.hasBeenLiked === true){
                 removeBadge(`badge-like`)
             }
@@ -160,7 +176,7 @@ undoBtn.addEventListener('click', ()=>{
             
             modifiableDogsData[dogArrayIndex].hasBeenLiked = false  
             modifiableDogsData[dogArrayIndex].hasBeenSwiped = true
-            console.log(currentDog)  
+
         },200)
     }    
 })
@@ -281,4 +297,4 @@ function enableBtns(){
 }
 
 
-export {currentDog, renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}
+export {currentDog, renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn, renderRealDogArr, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}

@@ -87,7 +87,7 @@ function renderTutorial(){
 
 function renderInstruction(){
     const instructionEl = document.querySelector('#instruction')
-    console.log(currentDog)
+
 
     if(dogArrayIndex === 0){
         instructionEl.innerHTML = `
@@ -121,6 +121,8 @@ function renderInstruction(){
         instructionEl.innerHTML = `
         <p class="instruction-text">It's not all about the looks! Click <img src="/images/info-icon.png" class="primary-icon"> to read the profile!</p>
         `
+        undoBtn.disabled = true
+        disableBtns()
     }
 
     if(dogArrayIndex === 2 && currentDog.hasBeenSwiped == true && expandedProfile.style.display === "block"){
