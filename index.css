@@ -183,8 +183,8 @@ button {
 .badge {
     z-index: 1;
     position: absolute;
-    width: 180px;
-    top: 3em;
+    width: 170px;
+    top: 2.5em;
     left: 1em;
     -webkit-transform: rotate(-25deg);
     -moz-transform: rotate(-25deg);

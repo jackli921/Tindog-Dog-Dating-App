@@ -209,7 +209,7 @@ superBtn.addEventListener('click',()=>{
     modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
     modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
         
-    renderBadge("badge-like") // display liked badge using DOM
+    renderBadge("badge-super") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
     renderNextDog()
