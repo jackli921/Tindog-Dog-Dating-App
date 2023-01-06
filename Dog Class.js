@@ -1,5 +1,5 @@
 // Dog class with constructor function that modifies data into html for rendering
-
+import { slideDirection, dogArrayIndex } from "./index.js"
 class DogClass{
     constructor(data){
         // assigns data to this
@@ -9,7 +9,7 @@ class DogClass{
     getDogHtml(){
         let { name, avatar, age, bio, city, country, likes, dislikes, hasBeenSwiped, hasBeenLiked } = this 
         return `
-            <img class="profile-img" id="dog-avatar" src="${avatar}" alt="">
+            <img class="profile-img ${dogArrayIndex === 4 ? "swipe-left" : slideDirection}" id="dog-avatar" src="${avatar}" alt="">
            
             <div id="badge-container"></div>
             

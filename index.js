@@ -1,12 +1,11 @@
 
-import {dogsData, fakeDogsData} from "./data.js";
-import Dog from "./Dog.js";
-import { renderIdlePage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage, renderInstruction} from "./welcomeScreen.js";
-import {renderScrollInstruction, renderPressDownBtnInstruction, renderFinalInstruction } from "./instructions.js"
+import {realDogsData, fakeDogsData} from "./data.js";
+import dogClass from "./Dog Class.js";
+import { renderAgreementPage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage } from "./welcomeScreen.js";
+import {isInstructionNeeded, renderScrollInstruction, renderPressDownBtnInstruction, renderFinalInstruction } from "./instructions.js"
 
-let realDogData = dogsData.sort(() => Math.random() - 0.5)
-
-let modifiableDogsData = [...fakeDogsData, ...realDogData];
+let RandomizedRealDogData = realDogsData.sort(() => Math.random() - 0.5)
+let modifiableDogsData = [...fakeDogsData, ...RandomizedRealDogData];
 
 // take control of all input buttons
 const acceptBtn = document.getElementById('accept-btn')
@@ -14,70 +13,61 @@ const rejectBtn = document.getElementById('reject-btn')
 const undoBtn = document.getElementById('undo-btn')
 const superBtn = document.getElementById('super-btn')
 
-// take control of page elements and their respective modals
+// take control of HTML elements and modals for future rendering
 const tindogLogo = document.getElementById('tindog-logo')
 const homepageModal = document.getElementById('homepage-modal')
-const unfinishedModal = document.getElementById('unfinished-modal')
-
 const profileContainer = document.getElementById('profile-container')
 const profileCard = document.getElementById('profile-card')
 const expandedProfile = document.getElementById('expanded-profile')
-// share modal
 
+// share to soocial media modal & buttons
 const closeShareModalBtn = document.querySelector('#close-share-modal-btn')
 const shareModal = document.querySelector('#share-modal')
+let slideDirection = undefined;
 
 let dogArrayIndex = 0 // dogArrayIndex is initialized to 0 to store the first object
 let currentDog = getNewDog() // call on getNewDog function to get the object data
 
 
+
+renderAgreementPage()
+checkUserConsent()
+
 function getNewDog(){    
     let nextDogData = modifiableDogsData[dogArrayIndex] 
-    return nextDogData ? new Dog(nextDogData): {}     
+    return nextDogData ? new dogClass (nextDogData): {}     
+    // if "return nextDogData" returns a trucy value to the parent function of getNewDog(), then return the new constructed object instead
 }
 
+// renders dog data to DOM then checks index to determine if the tutorial instruction function should be called  
 function renderProfile(){
     profileCard.innerHTML = currentDog.getDogHtml()
     expandedProfile.innerHTML = currentDog.getAdditionalHtml()
-    
-    if(dogArrayIndex < 4 ){
-        renderInstruction()
-    }else{
-        document.querySelector('#instruction').style.display = "none"
-    }
-    
-    if (dogArrayIndex === 4){
-         undoBtn.disabled = true;
-    } 
-
+    isInstructionNeeded()
     handleInfoBtnClick()
     handleShareBtnClick()
+    expandedProfile.classList.add('hidden')
 }
 
-renderIdlePage()
-checkUserConsent()
-
 function renderRealDogArr(){
-    
-
     enableBtns()
     dogArrayIndex += 2
     currentDog = getNewDog()
-
     renderProfile()
 }
 
 
 
 function handleInfoBtnClick(){
+    const dogAvatar = document.getElementById('dog-avatar')
+    const textOverlay = document.getElementById('text-overlay-container')
+    const infoBtn = document.getElementById('info-icon')
+    const downArrow = document.getElementById('down-arrow')
 
+    const isFakeDogs = dogArrayIndex < 2 || dogArrayIndex === 3
+    const isFirstTimeLookAtDemoDog = currentDog.name === "Yet another fake dog" && currentDog.hasBeenSwiped === false
 
-    let dogAvatar = document.getElementById('dog-avatar')
-    let textOverlay = document.getElementById('text-overlay-container')
-    let infoBtn = document.getElementById('info-icon')
-    let downArrow = document.getElementById('down-arrow')
-
-    if(dogArrayIndex < 2 || currentDog.name === "Yet another fake dog" && currentDog.hasBeenSwiped === false || dogArrayIndex === 3){
+    if(isFakeDogs || isFirstTimeLookAtDemoDog){
         infoBtn.classList.add('not-allowed')
     }
     else{
@@ -159,25 +149,25 @@ closeShareModalBtn.addEventListener('click',()=>{
 
 
 undoBtn.addEventListener('click', ()=>{
-    if(dogArrayIndex >= 5 || dogArrayIndex === 3){
+    if(dogArrayIndex > 4 || dogArrayIndex === 3){
         setTimeout(()=>{
             disableBtns()
+            console.log(dogArrayIndex)
             dogArrayIndex -= 1
+            console.log(dogArrayIndex)
+
+            slideDirection = "swipe-right"
             currentDog = getNewDog()
             enableBtns()            
             undoBtn.disabled = false;
             renderProfile()            
-            if (currentDog.hasBeenLiked === true){
-                removeBadge(`badge-like`)
-            }
-            else{
-                removeBadge(`badge-nope`)
-            }
-            
+
+            currentDog.hasBeenLiked === true ? removeBadge(`badge-like`):removeBadge(`badge-nope`)
+
             modifiableDogsData[dogArrayIndex].hasBeenLiked = false  
             modifiableDogsData[dogArrayIndex].hasBeenSwiped = true
 
-        },200)
+        },500)
     }    
 })
 
@@ -185,11 +175,14 @@ rejectBtn.addEventListener('click', ()=>{
     disableBtns()
     
     currentDog.hasBeenSwiped = true     // change the swiped and liked states to true 
+    console.log(currentDog)
     modifiableDogsData[dogArrayIndex].hasBeenSwiped = true  
+    console.log(modifiableDogsData[dogArrayIndex])
         
     renderBadge("badge-nope") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
+    slideDirection = "swipe-left"
     renderNextDog()
 })
 
@@ -204,6 +197,8 @@ acceptBtn.addEventListener('click', ()=>{
         
     renderBadge("badge-like") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
+
+    slideDirection = "swipe-left"
     renderNextDog()
 })
 
@@ -218,6 +213,7 @@ superBtn.addEventListener('click',()=>{
         
     renderBadge("badge-like") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
+    slideDirection = "swipe-left"
     renderNextDog()
 })
 
@@ -234,7 +230,7 @@ tindogLogo.addEventListener('click', ()=>{
 })
 
 function renderNextDog(){
-        if(currentDog.hasBeenSwiped){
+
  
         if(dogArrayIndex < modifiableDogsData.length){
             setTimeout(()=>{
@@ -245,27 +241,26 @@ function renderNextDog(){
                 enableBtns()
                 }
                 
-            },400)
+            },600)
         }
         else {
-            setTimeout(()=>{renderEndScreen()}, 400) 
+            setTimeout(()=>{renderEndScreen()}, 500) 
         }
-    }
+
 
 }
 
 function renderBadge(badgeName){
     const badgeContainer = document.getElementById("badge-container") 
-    badgeContainer.innerHTML = `<img class="badge" id="badge"src="/images/${badgeName}.png">`       
+    badgeContainer.innerHTML = `<img class="badge spin-in" id="badge"src="/images/${badgeName}.png">`       
     const badge = document.getElementById("badge")
-    badge.classList.add("spin-in") // add spinning animation by adding in custom CSS 
 }
 
 function removeBadge(badgeName){
     const badgeContainer = document.getElementById("badge-container") 
-    badgeContainer.innerHTML = `<img class="badge" id="badge"src="/images/${badgeName}.png">`       
+    badgeContainer.innerHTML = `<img class="badge spin-out" id="badge"src="/images/${badgeName}.png">`       
     const badge = document.getElementById("badge")
-    badge.classList.add("spin-out")
+
     setTimeout(()=>{
         badge.style.display = "none"
     },500)
@@ -297,4 +292,4 @@ function enableBtns(){
 }
 
 
-export {currentDog, renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn, renderRealDogArr, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}
+export { slideDirection, currentDog, renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn, renderRealDogArr, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}

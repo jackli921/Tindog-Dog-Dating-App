@@ -1,4 +1,4 @@
-const dogsData = [
+const realDogsData = [
     
     {
         name: "Emilia",
@@ -166,4 +166,4 @@ const fakeDogsData = [
     },
 ]
 
-export { dogsData, fakeDogsData }
+export { realDogsData, fakeDogsData }
