@@ -166,4 +166,16 @@ const fakeDogsData = [
     },
 ]
 
-export { realDogsData, fakeDogsData }
+const instructions = {
+    acceptBtn: `  <p class="instruction-text slide-right">Press <img "instruction-icons" src="./images/icon-accept.png"> to like a dog!</p>`,    
+    superBtn: `<p class="instruction-text slide-left">Fell in love? Press <img class = "instruction-icons" src='./images/icon-super.png'> to superlike a dog!</p>`,
+    rejectBtn: `<p class="instruction-text slide-right">Press <img "instruction-icons" src="./images/icon-reject.png"> to reject a dog!</p>`,
+    undoBtn:` <p class="instruction-text slide-left">Regretting your decision? Press
+         <img src="./images/icon-undo.png" class="instruction-icons"> to go back!</p>`,
+    infoBtn:` <p class="instruction-text slide-right"> Remember! It's not all about the looks! Click <img src="/images/info-icon.png" class="primary-icon"> to read the profile!</p>`,
+    downArrow: `<p class="instruction-text">Tap <img src="/images/down-arrow.png" class="primary-icon"> to view the dog's full photo again!</p>`,
+    scrollDownText:` <p class="instruction-text">Scroll down, read their profile, and tap <img class="share-icon" src="./images/share-btn.svg"> to share their profile!</p>`,
+    readyText:` <p class="instruction-text">Other icons do things to! Try them out! Ready to meet some dogs today?</p>
+        <button id="ready-btn" class="rectangular-btn-primary cool-hover">Ready!</button>`
+}
+export { realDogsData, fakeDogsData, instructions }

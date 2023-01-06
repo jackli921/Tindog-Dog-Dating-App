@@ -1,5 +1,6 @@
 import { dogArrayIndex, renderProfile, renderRealDogArr, currentDog, expandedProfile, profileCard, slideDirection} from "./index.js"
 import { disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn} from './index.js'
+import{instructions} from './data.js'
 
 function isInstructionNeeded(){
     const instructionEl = document.querySelector('#instruction')
@@ -15,49 +16,36 @@ function renderBtnInstructions(){
     const instructionEl = getInstructionModal()
 
     if(dogArrayIndex === 0){
-        instructionEl.innerHTML = `
-        <p class="instruction-text slide-right">Press <img "instruction-icons" src="./images/icon-accept.png"> to like a dog!</p>
-        `
+        instructionEl.innerHTML = `${instructions.acceptBtn}`
         acceptBtn.disabled = false
     }
 
     if(dogArrayIndex === 1){
-        instructionEl.innerHTML = `
-        <p class="instruction-text slide-left">Fell in love? Press <img class = "instruction-icons" src='./images/icon-super.png'> to superlike a dog!</p>
-    `
+       instructionEl.innerHTML = `${instructions.superBtn}`
         superBtn.disabled = false
     }
 
     if(dogArrayIndex === 2 && currentDog.hasBeenSwiped == false){
-        instructionEl.innerHTML = `
-        <p class="instruction-text slide-right">Press <img "instruction-icons" src="./images/icon-reject.png"> to reject a dog!</p>
-        `
+       instructionEl.innerHTML = `${instructions.rejectBtn}`
         rejectBtn.disabled = false
     
     }
     if(dogArrayIndex === 3){
-        instructionEl.innerHTML = `
-        <p class="instruction-text slide-left">Regretting your decision? Press
-         <img src="./images/icon-undo.png" class="instruction-icons"> to go back!</p>
-    `
+        instructionEl.innerHTML = `${instructions.undoBtn}`
         undoBtn.disabled = false
 
     }
     if(dogArrayIndex === 2 && currentDog.hasBeenSwiped == true){
-        instructionEl.innerHTML = `
-        <p class="instruction-text slide-right"> Remember! It's not all about the looks! Click <img src="/images/info-icon.png" class="primary-icon"> to read the profile!</p>
-        `
+       instructionEl.innerHTML = `${instructions.infoBtn}`
         undoBtn.disabled = true
         disableBtns()
     }
-
     let isSecondLookAtDemoDog = dogArrayIndex === 2 && currentDog.hasBeenSwiped == true
     
     if(isSecondLookAtDemoDog && expandedProfile.style.display === "block"){
-        instructionEl.innerHTML = `
-        <p class="instruction-text slide-right">Click <img src="/images/down-arrow.png" class="primary-icon"> to see the full profile again!</p>
-        `
+        instructionEl.innerHTML = `${instructions.readyText}`
     }
+
 }
 
 function renderScrollInstruction(){
@@ -65,9 +53,8 @@ function renderScrollInstruction(){
         undoBtn.disabled = true
         disableBtns()
         document.querySelector('#down-arrow').classList.add('not-allowed')
-        document.querySelector('#instruction').innerHTML = `
-        <p class="instruction-text">Scroll down, read the dog's profile, and tap <img class="share-icon" src="./images/share-btn.svg"> to their profile!</p>
-        `
+        const instructionEl = getInstructionModal()
+        instructionEl.innerHTML = `${instructions.scrollDownText}`
     }
 }
 
@@ -76,27 +63,22 @@ function renderPressDownBtnInstruction(){
     if (dogArrayIndex === 2){
         document.querySelector('#share-btn').classList.add('not-allowed')
         document.querySelector('#down-arrow').classList.remove('not-allowed')
-        document.querySelector('#instruction').innerHTML = `
-        <p class="instruction-text">Tap <img src="/images/down-arrow.png" class="primary-icon"> to view the dog's full photo!</p>
-        `
+        const instructionEl = getInstructionModal()
+        instructionEl.innerHTML = `${instructions.downArrow}`
     }
 }
 
 function renderFinalInstruction(){
-    if (dogArrayIndex === 2){
-        document.querySelector('#info-icon').classList.add('not-allowed')
-    }
-         const instruction = document.querySelector('#instruction')
-         instruction.style.height = "40%"
-         instruction.style.top = "30%" 
-         instruction.innerHTML = `
-        <p class="instruction-text">Other icons do things to! Try them out as you go! Are you ready to mate today?</p>
-        <button id="ready-btn" class="rectangular-btn-primary cool-hover">Ready!</button>
-        `
+    const instructionEl = getInstructionModal()
+    
+    document.querySelector('#info-icon').classList.add('not-allowed')
+    
+    instructionEl.style.height = "40%"
+    instructionEl.style.top = "30%" 
+    instructionEl.innerHTML = `${instructions.readyText}`
 
-        document.querySelector('#ready-btn').addEventListener('click',()=>{
-
-            renderRealDogArr()
+    document.querySelector('#ready-btn').addEventListener('click',()=>{
+        renderRealDogArr()
     })
 }
 export {renderScrollInstruction, renderPressDownBtnInstruction, renderFinalInstruction, isInstructionNeeded}

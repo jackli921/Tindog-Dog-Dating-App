@@ -9,7 +9,7 @@ class DogClass{
     getDogHtml(){
         let { name, avatar, age, bio, city, country, likes, dislikes, hasBeenSwiped, hasBeenLiked } = this 
         return `
-            <img class="profile-img ${dogArrayIndex === 4 ? "swipe-left" : slideDirection}" id="dog-avatar" src="${avatar}" alt="">
+            <img class="profile-img ${slideDirection}" id="dog-avatar" src="${avatar}" alt="">
            
             <div id="badge-container"></div>
             
@@ -45,7 +45,7 @@ class DogClass{
             <p><strong>Bio:</strong> ${this.bio}</p>
             <br>
             <hr>
-            <button id="share-btn" class="share-btn"><img class="share-icon" src="./images/share-btn.svg"></i>Share ${this.name}'s Profile<button>
+            <button id="share-btn" class="share-btn"><img class="share-icon" src="./images/share-btn.svg"></i>&nbsp<strong>${this.name}'s Profile </strong><button>
             `
         }
 }

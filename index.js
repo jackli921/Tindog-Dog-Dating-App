@@ -132,7 +132,7 @@ function handleShareBtnClick(){
             shareModal.style.display = "flex"
             const shareModalText = document.querySelector('#share-modal-text-container')
             shareModalText.innerHTML = `<p class="share-modal-text">
-            Share a direct link to ${currentDog.name}'s profile on social media! </p>
+            Share a direct link to <strong>${currentDog.name}'s profile </strong> on social media! </p>
             `
         }
     })
@@ -140,13 +140,10 @@ function handleShareBtnClick(){
 }
 
 
-
-
 closeShareModalBtn.addEventListener('click',()=>{
     shareModal.style.display = "none"
-    renderPressDownBtnInstruction()
+       dogArrayIndex === 2 ? renderPressDownBtnInstruction() : dogArrayIndex 
 })
-
 
 undoBtn.addEventListener('click', ()=>{
     if(dogArrayIndex > 4 || dogArrayIndex === 3){
@@ -156,7 +153,7 @@ undoBtn.addEventListener('click', ()=>{
             dogArrayIndex -= 1
             console.log(dogArrayIndex)
 
-            slideDirection = "swipe-right"
+            slideDirection = dogArrayIndex > 3 ? "swipe-right": slideDirection
             currentDog = getNewDog()
             enableBtns()            
             undoBtn.disabled = false;
@@ -182,7 +179,8 @@ rejectBtn.addEventListener('click', ()=>{
     renderBadge("badge-nope") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
-    slideDirection = "swipe-left"
+    slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
+
     renderNextDog()
 })
 
@@ -198,7 +196,7 @@ acceptBtn.addEventListener('click', ()=>{
     renderBadge("badge-like") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
 
-    slideDirection = "swipe-left"
+    slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
     renderNextDog()
 })
 
@@ -213,7 +211,7 @@ superBtn.addEventListener('click',()=>{
         
     renderBadge("badge-like") // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
-    slideDirection = "swipe-left"
+    slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
     renderNextDog()
 })
 

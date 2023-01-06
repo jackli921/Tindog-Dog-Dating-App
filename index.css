@@ -245,17 +245,7 @@ button {
     padding-bottom: 0.3rem;
 }
 
-.bio {
-    font-size: 1rem;
-    padding-top: 0.5em;
-    line-height: 1.3;
-}
 
-.bio > p {
-    padding: inherit;
-    line-height: inherit;
-    line-height: inherit;
-}
 
 #location-overlay {
     font-size: 1.1rem;
@@ -433,6 +423,7 @@ button {
 .share-modal-text{
     padding: 1em 1em 0 1em;
     font-size: 1.25rem;
+    
 }
 .share-modal-social-media-container{
     width:70%;
@@ -441,9 +432,31 @@ button {
     flex-wrap: wrap;
 }
 
+.about-modal{
+    width: 385px;
+    height: 550px;
+    position: absolute;
+    z-index: 1;
+    background-color: whitesmoke;
+    margin-top: 10px;
+    left: 50%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 1em;
+    flex-direction: column;
+    align-items: center;
+    gap:1em;
+    display: hidden;
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+}
 
-.homepage-modal {
-    background-image: linear-gradient(to bottom, #E5E5BE, #CC95C0);
+.about-modal > p {
+    padding: inherit;
+    line-height: inherit;
+    line-height: inherit;
 }
 
 
@@ -468,17 +481,6 @@ button {
     width: 250px;
 }
 
-.primary-modal{
-    padding: 1em;
-    width:75%;
-    height:28%;
-    background: linear-gradient(to right, #fd746c, #ff9068);
-    border-radius: 10px;
-    margin-bottom: 3em;
-    animation-name: fade-in;
-    animation-duration: 0.5s;
-    animation-timing-function: ease-in-out;
-}
 
 .white-text {
     color: whitesmoke;
