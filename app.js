@@ -179,6 +179,8 @@ rejectBtn.addEventListener('click', ()=>{
     renderBadge("badge-nope", true) // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
+    // document.querySelector('#next-profile-card').src = modifiableDogsData[dogArrayIndex].avatar
+    
     setTimeout(() => {
             const dogAvatar = document.getElementById('dog-avatar')
             dogAvatar.classList.add('shrink-left')

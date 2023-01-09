@@ -122,10 +122,6 @@ button {
     overflow: hidden scroll;
 }
 
-#profile-card{
-    position: relative;
-    transform-origin: 50% 99%;
-}
 
 #instruction{
     width:100%;
@@ -166,12 +162,28 @@ button {
 
 
 /* profileimage section */
-.profile-img {
+.profile-img{
     margin: 0px auto;
     height: 600px;
     width: 101%;
     display: block;
     object-fit: cover;
+    z-index: 99
+}
+
+#next-profile-card{
+    margin: 0px auto;
+    height: 600px;
+    width: 101%;
+    display: block;
+    position: fixed;
+    object-fit: cover;
+    z-index: -9
+}
+
+#profile-card {
+    position: relative;
+    transform-origin: 50% 99%;
 }
 
 .final-image {

@@ -45,7 +45,7 @@ class DogClass{
             <p><strong>Bio:</strong> ${this.bio}</p>
             <br>
             <hr>
-            <button id="share-btn" class="share-btn"><img class="share-icon" src="./images/share-btn.svg"></i>&nbsp<strong>${this.name}'s Profile </strong><button>
+            <button id="share-btn" class="share-btn"><img class="share-icon" src="./images/share-btn.svg"></i>&nbsp<strong>${this.name}'s Profile </strong></button>
             `
         }
 }
