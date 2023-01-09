@@ -17,7 +17,7 @@ body {
     border: 0.3rem solid black;
     border-radius: 10px;
     font-family: 'Poppins', sans-serif;
-    margin: 2em auto;
+    margin: 1em auto;
     padding-bottom: 1em;
 }
 
@@ -169,7 +169,7 @@ button {
 .profile-img {
     margin: 0px auto;
     height: 600px;
-    width: 100%;
+    width: 101%;
     display: block;
     object-fit: cover;
 }
@@ -611,68 +611,6 @@ input:checked + .slider:before{
 
 /* animations */
 
-.swipe-left{
-    animation: swipe-left 0.3s forwards;
-}
-
-
-@keyframes swipe-left {
-    0% {
-        -webkit-transform: translateX(150%);
-        -ms-transform: translateX(150%);
-        transform: translateX(150%);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: translateX(0%);
-        -ms-transform: translateX(0%);
-        transform: translateX(0%);
-    }
-}
-
-
-.swipe-right{
-    animation: swipe-right 0.3s forwards;
-}
-
-
-@keyframes swipe-right {
-    0% {
-        -webkit-transform: translateX(-150%);
-        -ms-transform: translateX(-150%);
-        transform: translateX(-150%);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: translateX(0%);
-        -ms-transform: translateX(0%);
-        transform: translateX(0%);
-    }
-}
-
-.swipe-up{
-    animation: swipe-up 0.3s forwards;
-}
-
-@keyframes swipe-up {
-    0% {
-        -webkit-transform: translateY(-150%);
-        -ms-transform: translateY(-150%);
-        transform: translateY(-150%);
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: translateY(0%);
-        -ms-transform: translateY(00%);
-        transform: translateY(0%);
-    }
-}
-
-
-
 
 
 .slide-right {
@@ -916,11 +854,11 @@ input:checked + .slider:before{
 }
 
 .spin-in {
-    animation: spin-in 0.2s forwards;
+    animation: spin-in 0.1s forwards;
 }
 
 .spin-out {
-    animation: spin-out 0.5s forwards;
+    animation: spin-out 0.4s forwards;
 }
 
 @keyframes spin-in {
@@ -977,3 +915,51 @@ input:checked + .slider:before{
     }
 
 }
+
+.shrink-right{
+    animation: shrink-right 0.4s forwards;
+}
+
+@keyframes shrink-right {
+    from{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    to{
+        opacity: 0;
+        transform: translateX(100%);
+    }
+
+}
+
+.shrink-left{
+    animation: shrink-left 0.4s forwards;
+}
+
+@keyframes shrink-left {
+    from{
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    to{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+
+}
+.shrink-up{
+    animation: shrink-up 0.4s forwards;
+}
+
+@keyframes shrink-up {
+    from{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+}
+

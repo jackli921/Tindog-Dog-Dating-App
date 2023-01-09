@@ -115,7 +115,7 @@ function handleShareBtnClick(){
     
     shareBtn.addEventListener('click',()=>{
 
-        console.log("share btn clicked!")
+        
         if(navigator.share){
             navigator.share({
                 title:title, 
@@ -145,11 +145,8 @@ undoBtn.addEventListener('click', ()=>{
     if(dogArrayIndex > 4 || dogArrayIndex === 3){
         setTimeout(()=>{
             disableBtns()
-            console.log(dogArrayIndex)
             dogArrayIndex -= 1
-            console.log(dogArrayIndex)
-
-            slideDirection = dogArrayIndex > 3 ? "swipe-right": slideDirection
+            slideDirection = dogArrayIndex > 3 ? "shrink-left": slideDirection
             currentDog = getNewDog()
             enableBtns()            
             undoBtn.disabled = false;
@@ -182,7 +179,12 @@ rejectBtn.addEventListener('click', ()=>{
     renderBadge("badge-nope", true) // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
-    slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
+    setTimeout(() => {
+            const dogAvatar = document.getElementById('dog-avatar')
+            dogAvatar.classList.add('shrink-left')
+    }, 300);
+
+    // slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
 
     renderNextDog()
 })
@@ -194,12 +196,16 @@ acceptBtn.addEventListener('click', ()=>{
     // currentDog.hasBeenLiked = true   
     
     modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
-    modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
+    modifiableDogsData[dogArrayIndex].hasBeenSwiped = true  
         
     renderBadge("badge-like", true) // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
 
-    slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
+    setTimeout(() => {
+        const dogAvatar = document.getElementById('dog-avatar')
+        dogAvatar.classList.add('shrink-right')
+    }, 300);
+
     renderNextDog()
 })
 
@@ -214,7 +220,12 @@ superBtn.addEventListener('click',()=>{
         
     renderBadge("badge-super", true) // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
-    slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
+    
+    setTimeout(() => {  
+       const dogAvatar = document.getElementById('dog-avatar')
+        dogAvatar.classList.add('shrink-up')
+    }, 300);
+
     renderNextDog()
 })
 

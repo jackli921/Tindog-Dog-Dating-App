@@ -9,7 +9,7 @@ class DogClass{
     getDogHtml(){
         let { name, avatar, age, bio, city, country, likes, dislikes, hasBeenSwiped, hasBeenLiked } = this 
         return `
-            <img class="profile-img ${slideDirection}" id="dog-avatar" src="${avatar}" alt="">
+            <img class="profile-img" id="dog-avatar" src="${avatar}" alt="">
            
             <div id="badge-container"></div>
             
