@@ -1,5 +1,5 @@
 // Dog class with constructor function that modifies data into html for rendering
-import { slideDirection, dogArrayIndex } from "./index.js"
+import { slideDirection, dogArrayIndex } from "./app.js"
 class DogClass{
     constructor(data){
         // assigns data to this

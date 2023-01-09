@@ -1,7 +1,8 @@
 
-import { currentDog, renderProfile, profileContainer, profileCard, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, modifiableDogsData, dogArrayIndex, handleInfoBtnClick, rejectBtn} from './index.js'
+import { currentDog, renderProfile, profileContainer, profileCard, expandedProfile,  modifiableDogsData, dogArrayIndex, handleInfoBtnClick} from './app.js'
 import { fakeDogsData } from './data.js'
 import dogClass from './Dog Class.js'
+import { enableBtns , disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn } from "./utils.js";
 
 function renderAgreementPage(){
     disableBtns()

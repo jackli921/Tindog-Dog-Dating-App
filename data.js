@@ -10,7 +10,8 @@ const realDogsData = [
         dislikes: "trucks in general",
         bio: "Kids just gone off to another family - so time to get herself out there / Not used a webcam before.",
         hasBeenSwiped: false,
-        hasBeenLiked: false
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
     },
     {
         name: "Terry",
@@ -22,7 +23,8 @@ const realDogsData = [
         dislikes:"most mushrooms except Shiitake",
         bio: "Handsome lad, will take you for a pint of stones and chips and gravy.",
         hasBeenSwiped: false,
-        hasBeenLiked: false
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
     },
     {
         name: "Koharu",
@@ -34,7 +36,8 @@ const realDogsData = [
         dislikes:"Owner's younger sister. Birds",
         bio: "removing food from the bowl to eat off the floor and chasing a ball once then not giving it back. Get onto desks but not sure how to get off",
         hasBeenSwiped: false,
-        hasBeenLiked: false
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
     },
     {
         name: "Lily",
@@ -46,7 +49,8 @@ const realDogsData = [
         dislikes:"showers",
         bio: 'Petite strawberry blonde. Likes long walks and also being carried. How can I say "multiple personality disorder" without sounding mental?',
         hasBeenSwiped: false,
-        hasBeenLiked: false
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
     },
     {
         name: "Ikesuke",
@@ -58,7 +62,8 @@ const realDogsData = [
         dislikes:"perfumes",
         bio: "Half-Japanese American. Loves adventure and sunshine",
         hasBeenSwiped: false,
-        hasBeenLiked: false
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
     },
     {
         name: "Milo",
@@ -70,7 +75,8 @@ const realDogsData = [
         dislikes:"Having nails clipped, that dog down the road, early mornings",
         bio: "Loves: the outdoors, chasing squirrels, bubble wrap.", 
         hasBeenSwiped: false,
-        hasBeenLiked: false
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
     },
 
     {
@@ -83,7 +89,8 @@ const realDogsData = [
         dislikes:"cold rooms",
         bio: "Looks tough but a real softie. Just looking for someone special to love me as I am",
         hasBeenSwiped: false,
-        hasBeenLiked: false
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
     },
 
     {
@@ -96,7 +103,8 @@ const realDogsData = [
         dislikes:"Hard matresses",
         bio: "True homebuddy. Can spend 24 hours on the couch. Lived 2 years in Canada. Enjoyed the snow. Moving back to Toronto next year. ",
         hasBeenSwiped: false,
-        hasBeenLiked: false
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
     },
 
         {
@@ -109,7 +117,8 @@ const realDogsData = [
         dislikes:"Suspicious of birds",
         bio: "Loves to swim, run, walk but most of all to eat.",
         hasBeenSwiped: false,
-        hasBeenLiked: false
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
     },
 
 ]

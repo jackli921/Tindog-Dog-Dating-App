@@ -1,17 +1,14 @@
 
 import {realDogsData, fakeDogsData} from "./data.js";
 import dogClass from "./Dog Class.js";
+import { enableBtns , disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn } from "./utils.js";
 import { renderAgreementPage, checkUserConsent, renderWelcomeAnimations, renderWelcomePage } from "./welcomeScreen.js";
 import {isInstructionNeeded, renderScrollInstruction, renderPressDownBtnInstruction, renderFinalInstruction } from "./instructions.js"
 
 let RandomizedRealDogData = realDogsData.sort(() => Math.random() - 0.5)
 let modifiableDogsData = [...fakeDogsData, ...RandomizedRealDogData];
 
-// take control of all input buttons
-const acceptBtn = document.getElementById('accept-btn')
-const rejectBtn = document.getElementById('reject-btn')
-const undoBtn = document.getElementById('undo-btn')
-const superBtn = document.getElementById('super-btn')
+
 
 // take control of HTML elements and modals for future rendering
 const tindogLogo = document.getElementById('tindog-logo')
@@ -72,45 +69,44 @@ function handleInfoBtnClick(){
     }
     else{
         infoBtn.addEventListener('click', ()=>{
-        dogAvatar.classList.remove("zoom-out") 
-        dogAvatar.classList.add("zoom-in")
-        
-        setTimeout(()=>{
-            textOverlay.style.display = "none"
-            dogAvatar.style.height = "400px"
-            expandedProfile.classList.remove('hidden')
-        },500)
-        
-        infoBtn.classList.toggle('hidden')
-        downArrow.classList.toggle('hidden') 
-        renderScrollInstruction()
-    })
+            dogAvatar.classList.remove("zoom-out") 
+            dogAvatar.classList.add("zoom-in")
+            
+            setTimeout(()=>{
+                textOverlay.style.display = "none"
+                dogAvatar.style.height = "400px"
+                expandedProfile.classList.remove('hidden')
+            },500)
+            
+            infoBtn.classList.toggle('hidden')
+            downArrow.classList.toggle('hidden') 
+            renderScrollInstruction()
+        })
 
-    downArrow.addEventListener('click', ()=>{
-        dogAvatar.classList.remove("zoom-in")
-        dogAvatar.classList.add("zoom-out")
-        
-        setTimeout(()=>{
-            textOverlay.style.display = "block"
-            dogAvatar.style.height = "600px"
+        downArrow.addEventListener('click', ()=>{
+            dogAvatar.classList.remove("zoom-in")
+            dogAvatar.classList.add("zoom-out")
+            
+            setTimeout(()=>{
+                textOverlay.style.display = "block"
+                dogAvatar.style.height = "600px"
 
-        },500)
-        
-        infoBtn.classList.toggle('hidden')
-        downArrow.classList.toggle('hidden')
-        expandedProfile.classList.add('hidden')
-        renderFinalInstruction()
-    })  
-
+            },500)
+            
+            infoBtn.classList.toggle('hidden')
+            downArrow.classList.toggle('hidden')
+            expandedProfile.classList.add('hidden')
+            renderFinalInstruction()
+        })  
     }
 }
 
 function handleShareBtnClick(){
     const shareBtn = document.querySelector('#share-btn')
-    const isSampleDog = currentDog.hasBeenSwiped === false && dogArrayIndex === 2
-    const isRealDog = dogArrayIndex === 0 || dogArrayIndex === 1 || dogArrayIndex === 3
+    const isDemoDog = currentDog.hasBeenSwiped === false && dogArrayIndex === 2
+    const isFakeDogs = dogArrayIndex === 0 || dogArrayIndex === 1 || dogArrayIndex === 3
 
-    if (isSampleDog || isRealDog){
+    if (isDemoDog || isFakeDogs){
         return
     }
 
@@ -159,9 +155,18 @@ undoBtn.addEventListener('click', ()=>{
             undoBtn.disabled = false;
             renderProfile()            
 
-            currentDog.hasBeenLiked === true ? removeBadge(`badge-like`):removeBadge(`badge-nope`)
+            if(currentDog.hasBeenLiked === true){
+                renderBadge(`badge-like`, false)
+            }
+            else if(currentDog.hasBeenSuperLiked === true )
+                renderBadge(`badge-super`, false)
+
+            else{
+                renderBadge(`badge-nope`, false)
+            }
 
             modifiableDogsData[dogArrayIndex].hasBeenLiked = false  
+            modifiableDogsData[dogArrayIndex].hasBeenSuperLiked = false  
             modifiableDogsData[dogArrayIndex].hasBeenSwiped = true
 
         },500)
@@ -171,12 +176,10 @@ undoBtn.addEventListener('click', ()=>{
 rejectBtn.addEventListener('click', ()=>{
     disableBtns()
     
-    currentDog.hasBeenSwiped = true     // change the swiped and liked states to true 
-    console.log(currentDog)
+    // currentDog.hasBeenSwiped = true     // change the swiped and liked states to true 
     modifiableDogsData[dogArrayIndex].hasBeenSwiped = true  
-    console.log(modifiableDogsData[dogArrayIndex])
         
-    renderBadge("badge-nope") // display liked badge using DOM
+    renderBadge("badge-nope", true) // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
     slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
@@ -187,13 +190,13 @@ rejectBtn.addEventListener('click', ()=>{
 
 acceptBtn.addEventListener('click', ()=>{
     disableBtns()
-    currentDog.hasBeenSwiped = true     // change the swiped and liked states to true
-    currentDog.hasBeenLiked = true   
+    // currentDog.hasBeenSwiped = true     // change the swiped and liked states to true
+    // currentDog.hasBeenLiked = true   
     
     modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
     modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
         
-    renderBadge("badge-like") // display liked badge using DOM
+    renderBadge("badge-like", true) // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
 
     slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
@@ -203,13 +206,13 @@ acceptBtn.addEventListener('click', ()=>{
 
 superBtn.addEventListener('click',()=>{
     disableBtns()
-    currentDog.hasBeenSwiped = true     // change the swiped and liked states to true
-    currentDog.hasBeenLiked = true   
+    // currentDog.hasBeenSwiped = true     // change the swiped and liked states to true
+    // currentDog.hasBeenLiked = true   
     
-    modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
-    modifiableDogsData[dogArrayIndex].hasBeenLiked = true  
+    modifiableDogsData[dogArrayIndex].hasBeenSwiped = true  
+    modifiableDogsData[dogArrayIndex].hasBeenSuperLiked = true  
         
-    renderBadge("badge-super") // display liked badge using DOM
+    renderBadge("badge-super", true) // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     slideDirection = dogArrayIndex > 3 ? "swipe-left": slideDirection
     renderNextDog()
@@ -227,9 +230,7 @@ tindogLogo.addEventListener('click', ()=>{
     })
 })
 
-function renderNextDog(){
-
- 
+function renderNextDog(){ 
         if(dogArrayIndex < modifiableDogsData.length){
             setTimeout(()=>{
                 currentDog = getNewDog()     
@@ -244,24 +245,12 @@ function renderNextDog(){
         else {
             setTimeout(()=>{renderEndScreen()}, 500) 
         }
-
-
 }
 
-function renderBadge(badgeName){
+function renderBadge(badgeName, addBadge){
     const badgeContainer = document.getElementById("badge-container") 
-    badgeContainer.innerHTML = `<img class="badge spin-in" id="badge"src="/images/${badgeName}.png">`       
+    badgeContainer.innerHTML = `<img class="badge ${addBadge?"spin-in": "spin-out"}" id="badge"src="/images/${badgeName}.png">`       
     const badge = document.getElementById("badge")
-}
-
-function removeBadge(badgeName){
-    const badgeContainer = document.getElementById("badge-container") 
-    badgeContainer.innerHTML = `<img class="badge spin-out" id="badge"src="/images/${badgeName}.png">`       
-    const badge = document.getElementById("badge")
-
-    setTimeout(()=>{
-        badge.style.display = "none"
-    },500)
 }
 
 function renderEndScreen(){
@@ -274,20 +263,5 @@ function renderEndScreen(){
         `
 }
 
-// disable input 
-function disableBtns(){
-    acceptBtn.disabled = true // disable both input button when valid button click is detected
-    rejectBtn.disabled = true
-    superBtn.disabled = true   
-}
 
-// enable input  
-function enableBtns(){
-    acceptBtn.disabled = false // disable both input button when valid button click is detected
-    rejectBtn.disabled = false
-    superBtn.disabled = false
-    undoBtn.disabled = false   
-}
-
-
-export { slideDirection, currentDog, renderProfile, profileCard, profileContainer, expandedProfile, disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn, renderRealDogArr, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}
+export { slideDirection, currentDog, renderProfile, profileCard, profileContainer, expandedProfile, undoBtn, acceptBtn, superBtn, rejectBtn, renderRealDogArr, modifiableDogsData, dogArrayIndex, handleInfoBtnClick}

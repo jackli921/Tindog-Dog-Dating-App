@@ -1,5 +1,6 @@
-import { dogArrayIndex, renderProfile, renderRealDogArr, currentDog, expandedProfile, profileCard, slideDirection} from "./index.js"
-import { disableBtns, undoBtn, acceptBtn, superBtn, rejectBtn} from './index.js'
+import { dogArrayIndex, renderProfile, renderRealDogArr, currentDog, expandedProfile, profileCard, slideDirection} from "./app.js"
+import { undoBtn, acceptBtn, superBtn, rejectBtn} from './app.js'
+import { enableBtns , disableBtns } from "./utils.js";
 import{instructions} from './data.js'
 
 function isInstructionNeeded(){
@@ -41,7 +42,7 @@ function renderBtnInstructions(){
         disableBtns()
     }
     let isSecondLookAtDemoDog = dogArrayIndex === 2 && currentDog.hasBeenSwiped == true
-    
+
     if(isSecondLookAtDemoDog && expandedProfile.style.display === "block"){
         instructionEl.innerHTML = `${instructions.readyText}`
     }
