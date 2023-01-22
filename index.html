@@ -22,13 +22,23 @@
     <header>
         <div class="nav-bar">
             <!-- <img class="nav-icons" src="images/icon-profile.png" alt="an grey head icon"> -->
-            <i class="fa-solid fa-dog nav-icons"></i>
+            <i class="fa-solid fa-dog nav-icons" id="profile-icon"></i>
             <img class="nav-icons" id="tindog-logo" src="images/logo.png" alt="illustration of a dog's paw">
-            <img class="nav-icons" src="images/icon-chat.png" alt="a text bubble">
+            <img class="nav-icons" id="chat-icon" src="images/icon-chat.png" alt="a text bubble">
         </div>
     </header>
 
-    <div class="homepage-modal about-modal hidden" id="homepage-modal">
+    <div class="user-under-review-modal hidden" id="user-profile-modal">
+        <img class="profile-teddy" src="./images/dog-teddy.jpg" alt="a small white dog staring at the camera with a raise eyebrow">
+        <h1>Teddy, 11</h1>
+        <p>Hello Sir. We regret to inform you that your account has been suspended. 
+        <p>We have received a number of complaints about your behavior from other Tindog users, and we are currently investigating them. </p>
+        <p>You will not be able to edit your profile as it is currently under review by our staff.</p>
+      
+        <button id="profile-close-button" class="button-primary">Okay</button>
+    </div>
+
+    <div class="about-modal hidden" id="homepage-modal">
         <img src="images/tindog-icon.png" class="tindog-icon"
             alt="an icon of a dog's paw with Tindog and world edition written on the right in vibrant colors">
     
@@ -51,12 +61,12 @@
     <div class="share-modal" id="share-modal">
         <div id="share-modal-text-container"></div>
         <div class="share-modal-social-media-container">
-            <a  href="#"><img class="btn-primary" src="./images/facebook-icon.png" alt=""></a>
-            <a  href="#"><img class="btn-primary" src="./images/whatsapp-icon.png" alt=""></a>
-            <a  href="#"><img class="btn-primary" src="./images/twitter-icon.png" alt=""></a>
-            <a  href="#"><img class="btn-primary" src="./images/copy-link-icon.png" alt=""></a>
-            <a  href="#"><img class="btn-primary" src="./images/weixin.svg" alt=""></a>
-            <a  href="#"><img class="btn-primary" src="./images/email-icon.png" alt=""></a>
+            <a  href="#"><img class="circle-btn-primary" src="./images/facebook-icon.png" alt=""></a>
+            <a  href="#"><img class="circle-btn-primary" src="./images/whatsapp-icon.png" alt=""></a>
+            <a  href="#"><img class="circle-btn-primary" src="./images/twitter-icon.png" alt=""></a>
+            <a  href="#"><img class="circle-btn-primary" src="./images/copy-link-icon.png" alt=""></a>
+            <a  href="#"><img class="circle-btn-primary" src="./images/weixin.svg" alt=""></a>
+            <a  href="#"><img class="circle-btn-primary" src="./images/email-icon.png" alt=""></a>
         </div>
         <button id="close-share-modal-btn" class="rectangular-btn-primary cool-hover">Back</button>
     </div>
@@ -64,19 +74,25 @@
     <main class="main-container">
         <div class="profile-container" id="profile-container">
 
-            <div id="next-profile-card"></div>
+
             <div id="profile-card"></div>
             <div class="expanded-profile-container hidden" id="expanded-profile"></div>
         </div>
 
         <div class="button-container">
-            <button class="btn-primary undo-btn" id="undo-btn" disabled></button>
-            <button class="btn-primary reject-btn" id="reject-btn"></button>
-            <button class="btn-primary accept-btn" id="accept-btn"></button>
-            <button class="btn-primary super-btn" id="super-btn"></button>
+            <button data-key="65" class="key circle-btn-primary undo-btn" id="undo-btn" disabled></button>
+            <button data-key="83" class="key circle-btn-primary reject-btn" id="reject-btn"></button>
+            <button data-key="68" class="key circle-btn-primary accept-btn" id="accept-btn"></button>
+            <button data-key="70" class="key circle-btn-primary super-btn" id="super-btn"></button>
         </div>
 
         </div>
+
+
+        <audio data-key="65" src="sounds/rewind.wav"></audio>
+        <audio data-key="83" src="sounds/reject.wav"></audio>
+        <audio data-key="68" src="sounds/accept.wav"></audio>
+        <audio data-key="70" src="sounds/super.wav"></audio>
     </main>
 
     <script src="/app.js" type="module"></script>

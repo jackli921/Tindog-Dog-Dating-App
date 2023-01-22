@@ -9,15 +9,19 @@ let RandomizedRealDogData = realDogsData.sort(() => Math.random() - 0.5)
 let modifiableDogsData = [...fakeDogsData, ...RandomizedRealDogData];
 
 
-
 // take control of HTML elements and modals for future rendering
 const tindogLogo = document.getElementById('tindog-logo')
 const homepageModal = document.getElementById('homepage-modal')
+
 const profileContainer = document.getElementById('profile-container')
 const profileCard = document.getElementById('profile-card')
 const expandedProfile = document.getElementById('expanded-profile')
 
-// share to soocial media modal & buttons
+const profileIcon = document.getElementById('profile-icon')
+const chatIcon = document.getElementById('chat-icon')
+const userProfileModal = document.getElementById('user-profile-modal')
+
+// share to social media modal & buttons
 const closeShareModalBtn = document.querySelector('#close-share-modal-btn')
 const shareModal = document.querySelector('#share-modal')
 let slideDirection = undefined;
@@ -53,7 +57,14 @@ function renderRealDogArr(){
     renderProfile()
 }
 
+window.addEventListener('click', function(e){
+    const audio = document.querySelector(`audio[data-key="${e.target.dataset.key}"]`)
+    const key = document.querySelector(`.key[data-key="${e.target.dataset.key}"]`)
+    if (!audio) return 
+    audio.play()
+    key.classList.add('pressed')
 
+})
 
 function handleInfoBtnClick(){
     const dogAvatar = document.getElementById('dog-avatar')
@@ -67,6 +78,7 @@ function handleInfoBtnClick(){
     if(isFakeDogs || isFirstTimeLookAtDemoDog){
         infoBtn.classList.add('not-allowed')
     }
+
     else{
         infoBtn.addEventListener('click', ()=>{
             dogAvatar.classList.remove("zoom-out") 
@@ -179,7 +191,6 @@ rejectBtn.addEventListener('click', ()=>{
     renderBadge("badge-nope", true) // display liked badge using DOM
     dogArrayIndex += 1 // increase object index by one
     
-    // document.querySelector('#next-profile-card').src = modifiableDogsData[dogArrayIndex].avatar
     
     setTimeout(() => {
             const dogAvatar = document.getElementById('dog-avatar')
@@ -241,6 +252,25 @@ tindogLogo.addEventListener('click', ()=>{
         enableBtns()
         undoBtn.disabled = true;
     })
+})
+
+
+profileIcon.addEventListener('click',()=>{
+    renderUserUnderReviewModal()
+})
+
+chatIcon.addEventListener('click', ()=>{
+    renderUserUnderReviewModal()
+})
+
+function renderUserUnderReviewModal(){
+    userProfileModal.style.display = "flex"
+
+}
+
+document.getElementById('profile-close-button').addEventListener('click',()=>{
+    userProfileModal.style.display = "none"
+
 })
 
 function renderNextDog(){ 

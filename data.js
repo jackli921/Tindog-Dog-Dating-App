@@ -21,13 +21,13 @@ const realDogsData = [
         country: "Italy",
         likes:"Walks (not in the rain). Beans. Sausages ",
         dislikes:"most mushrooms except Shiitake",
-        bio: "Handsome lad, will take you for a pint of stones and chips and gravy.",
+        bio: "Handsome lad, will take you for a pint of stones, chips and gravy. Reply if not cat",
         hasBeenSwiped: false,
         hasBeenLiked: false,
         hasBeenSuperLiked:false
     },
     {
-        name: "Koharu",
+        name: "Koha",
         avatar: "/images/dog-koharu.jpg",
         age: 3,
         city: "Gifu",
@@ -101,7 +101,7 @@ const realDogsData = [
         country: "Japan",
         likes:"Beds. Tatami. Hotsprings",
         dislikes:"Hard matresses",
-        bio: "True homebuddy. Can spend 24 hours on the couch. Lived 2 years in Canada. Enjoyed the snow. Moving back to Toronto next year. ",
+        bio: "True homebuddy. Can spend 24 hours on the couch. Enjoyed the snow. Moving back to Toronto next year. ",
         hasBeenSwiped: false,
         hasBeenLiked: false,
         hasBeenSuperLiked:false
@@ -116,6 +116,46 @@ const realDogsData = [
           likes:"All mammals",
         dislikes:"Suspicious of birds",
         bio: "Loves to swim, run, walk but most of all to eat.",
+        hasBeenSwiped: false,
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
+    },
+
+        {
+        name: "Jeff",
+        avatar: "/images/dog-jeff.jpg",
+        age: 3,
+        city: "San Francisco",
+        country: "U.S.A",
+          likes:"ball, beach, grass",
+        dislikes:"rainy days, cold room",
+        bio: "Flower connoisseur and stick enthusiast. I may be a Labrador, but I promise I won't retrieve your heart and run away with it.",
+        hasBeenSwiped: false,
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
+    },
+        {
+        name: "Izzy",
+        avatar: "/images/dog-Izzy.jpg",
+        age: 7,
+        city: "Berlin",
+        country: "Germany",
+        likes:"flowers and the sun",
+        dislikes:"nothing in particular",
+        bio: "I'm all about making new furry friends. I promise I won't chase after every squirrel I see.",
+        hasBeenSwiped: false,
+        hasBeenLiked: false,
+        hasBeenSuperLiked:false
+    },
+        {
+        name: "Dustin",
+        avatar: "/images/dog-dustin.png",
+        age: 10,
+        city: "Moscow",
+        country: "Russia",
+        likes:"long walks on the beach",
+        dislikes:"chocolates",
+        bio: "Chocolate survisor. If you enjoy a chat by the fire with some tea or coffee, then I think we will get along very well ",
         hasBeenSwiped: false,
         hasBeenLiked: false,
         hasBeenSuperLiked:false
@@ -151,13 +191,13 @@ const fakeDogsData = [
     },
     {
         name: "Yet another fake dog",
-        avatar: "/images/dog-teddy.jpg",
+        avatar: "/images/dog-fake.jpg",
         age: 11,
-        city: "Buenos Aires",
-        country: "Argentina",
-        likes:"cafe, leche, te",
-        dislikes:"mucho calor o mucho frío",
-        bio: "¿Cómo te va? Me gusto los gatos muchisimo. Desliza hacia la izquierda si no te gusta bailar.",
+        city: "Cuzco",
+        country: "Chile",
+        likes:"Ball and squirrel. Food. Nap. More nap. Bark at random stuff.",
+        dislikes:"That other dog next door",
+        bio: "If you are looking for a bad boy, swipe left, cause I am a good boy.",
         hasBeenSwiped: false,
         hasBeenLiked: false
     },
@@ -176,14 +216,13 @@ const fakeDogsData = [
 ]
 
 const instructions = {
-    acceptBtn: `  <p class="instruction-text slide-right">Press <img "instruction-icons" src="./images/icon-accept.png"> to like a dog!</p>`,    
-    superBtn: `<p class="instruction-text slide-left">Fell in love? Press <img class = "instruction-icons" src='./images/icon-super.png'> to superlike a dog!</p>`,
-    rejectBtn: `<p class="instruction-text slide-right">Press <img "instruction-icons" src="./images/icon-reject.png"> to reject a dog!</p>`,
-    undoBtn:` <p class="instruction-text slide-left">Regretting your decision? Press
-         <img src="./images/icon-undo.png" class="instruction-icons"> to go back!</p>`,
-    infoBtn:` <p class="instruction-text slide-right"> Remember! It's not all about the looks! Click <img src="/images/info-icon.png" class="primary-icon"> to read the profile!</p>`,
+    acceptBtn: `  <div class="instruction-text slide-right">Press <img "instruction-icons" src="./images/icon-accept.png"> to like a dog!</div>`,    
+    superBtn: `<div class="instruction-text slide-left"><span>Fell in love? Press <img class = "instruction-icons" src='./images/icon-super.png'> </div> <div class="instruction-text slide-left">to superlike a dog!</div>`,
+    rejectBtn: `<div class="instruction-text slide-right">Press <img "instruction-icons" src="./images/icon-reject.png"> to reject a dog!</div>`,
+    undoBtn:` <div class="instruction-text slide-left">Regretting your decision? </div> <span class="instruction-text slide-left">Press <img src="./images/icon-undo.png" class="instruction-icons"> to go back!</span>`,
+    infoBtn:` <div class="instruction-text slide-right"> Remember! It's not all about the looks! Press </div> <span class="instruction-text slide-right"><img src="/images/info-icon.png" class="primary-icon"> to read the profile!</span>`,
     downArrow: `<p class="instruction-text">Tap <img src="/images/down-arrow.png" class="primary-icon"> to view the dog's full photo again!</p>`,
-    scrollDownText:` <p class="instruction-text">Scroll down, read their profile, and tap <img class="share-icon" src="./images/share-btn.svg"> to share their profile!</p>`,
+    scrollDownText:` <div class="instruction-text">Scroll down, read their profile, and tap </div> <div class="instruction-text"> <img class="share-icon" src="./images/share-btn.svg"> to share their profile!</div>`,
     readyText:` <p class="instruction-text">Other icons do things to! Try them out! Ready to meet some dogs today?</p>
         <button id="ready-btn" class="rectangular-btn-primary cool-hover">Ready!</button>`
 }

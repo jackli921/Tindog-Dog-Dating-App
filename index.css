@@ -107,7 +107,7 @@ button {
    padding: 1em;
    background: linear-gradient(to bottom, #fd746c, #ff9068);
    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* mains section */
@@ -119,14 +119,14 @@ button {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    overflow: hidden scroll;
+    overflow: hidden;
 }
 
 
 #instruction{
     width:100%;
     height:35%;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.5);
     position: absolute;
     padding: 1em;
     top:30%;
@@ -143,6 +143,10 @@ button {
     width:90%;
     font-size: 1.5em;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:0.5em;
 }
 
 .instruction-icons{
@@ -171,15 +175,6 @@ button {
     z-index: 99
 }
 
-#next-profile-card{
-    margin: 0px auto;
-    height: 600px;
-    width: 101%;
-    display: block;
-    position: fixed;
-    object-fit: cover;
-    z-index: -9
-}
 
 #profile-card {
     position: relative;
@@ -331,14 +326,24 @@ button {
 .ready-btn:hover{
     opacity: 0.8;
 }
-.btn-primary {
+
+.circle-btn-primary {
     height: 60px;
     width: 60px;
-    border-radius: 100%;
+    border-radius: 50%;
     border: none;
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: all .3s;
 }
+.pressed{
+    transform: scale(1.1);
+}
+
+.circle-btn-primary:active{
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
 
 /* undo button */
 .undo-btn {
@@ -446,7 +451,7 @@ button {
 
 .about-modal{
     width: 385px;
-    height: 550px;
+    height: 580px;
     position: absolute;
     z-index: 1;
     background-color: whitesmoke;
@@ -455,31 +460,60 @@ button {
     top: 46%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    padding: 1em;
+    padding: 1.5em;
+    display: hidden;
     flex-direction: column;
     align-items: center;
     gap:1em;
-    display: hidden;
     animation-name: fade-in;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
+    background: linear-gradient(to right, #fd746c, #ff9068);
 }
 
 .about-modal > p {
-    padding: inherit;
+    padding: 0px;
     line-height: inherit;
-    line-height: inherit;
+}
+
+.user-under-review-modal{
+    width: 385px;
+    height: 580px;
+    position: absolute;
+    z-index: 1;
+    background-color: whitesmoke;
+    margin-top: 10px;
+    left: 50%;
+    top: 46%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    padding: 1.5em;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    animation-name: fade-in;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
+    background: linear-gradient(to right, #fd746c, #ff9068);
 }
 
 
 .button-primary {
-    width: 75%;
+    width: 200px;
     padding: 0.5em 0.5em;
     border-radius: 10px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     background-color: #F0CB35;
     border: 2px solid black;
+    transition: all .3s;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.button-primary:focus,
+.button-primary:active{
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
 }
 
 /* tindog-icon */
@@ -489,7 +523,7 @@ button {
 }
 
 .tindog-icon-welcome{
-    padding-top: 3em;
+    padding-top: 2em;
     width: 250px;
 }
 
@@ -621,6 +655,13 @@ input:checked + .slider:before{
     border-radius: 50%;
 }
 
+.profile-teddy{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-top: 1em;
+    border-radius: 50%;
+}
 /* animations */
 
 
