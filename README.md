@@ -1,17 +1,20 @@
 # Dog Dating App
-A mobile dating app mimicking basic interaction of Tinder made for dogs
+A dating app for dogs mimicking interaction of Tinder
 
-[Site Live](https://tiny-mochi-3e1c9c.netlify.app/)
 
-## Intro
-A training project built to consolidate key concepts I learned from:
+[Live Site](https://tiny-mochi-3e1c9c.netlify.app/)
 
+## Purpose
+- consolidate key JavaScript concepts I learned from:
 **Module 7 - Next Level JavaScript** [Scrimba Frontend Career Path Course](https://scrimba.com/learn/frontend) 
+- Have fun 
+
 
 ## Features
-- Like, Nope, Rewind functions
-- Associated CSS animations when above function is triggered
-- Expandable info icon which reveals more info 
+- App walk-through instructions
+- Like, reject, superlike, rewind functions
+- Associated CSS transitions & Sound fx when buttons are clicked
+- Expandable info icon that reveals more info about the dog 
 
 ## Demo
  ![](/images/demo.gif)
