@@ -544,7 +544,7 @@ button {
 .consent-modal {
     padding: 1em;
     width: 75%;
-    height: 31%;
+    height: 35%;
     background: linear-gradient(to right, #fd746c, #ff9068);
     border-radius: 10px;
     margin-top: 10em;
