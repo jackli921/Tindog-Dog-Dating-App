@@ -6,19 +6,21 @@
 
 html {
     background-image: linear-gradient(to right, #fd746c, #ff9068);
+
 }
 
 /* universal */
 body {
     background-color: white;
-    width: 412.5px;
+    width: 100%;
+    max-width: 400px;
     height: 100%;
     position: relative;
     border: 0.3rem solid black;
     border-radius: 10px;
     font-family: 'Poppins', sans-serif;
-    margin: 1em auto;
     padding-bottom: 1em;
+    margin: auto;
 }
 
 header {
