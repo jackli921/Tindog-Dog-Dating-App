@@ -1,14 +1,11 @@
 # Dog Dating App
 A dating app for dogs mimicking interaction of Tinder
 
-
-[Live Site](https://tiny-mochi-3e1c9c.netlify.app/)
+[Live Site](https://tindog-jack.netlify.app/)
 
 ## Purpose
 - consolidate key JavaScript concepts I learned from:
 **Module 7 - Next Level JavaScript** [Scrimba Frontend Career Path Course](https://scrimba.com/learn/frontend) 
-- Have fun 
-
 
 ## Features
 - App walk-through instructions
