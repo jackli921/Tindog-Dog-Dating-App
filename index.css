@@ -19,7 +19,7 @@ body {
     border: 0.3rem solid black;
     border-radius: 10px;
     font-family: 'Poppins', sans-serif;
-    margin: auto;
+    margin: 0 auto;
     max-height: 820px;
 }
 
@@ -1029,3 +1029,8 @@ input:checked + .slider:before{
 
 }
 
+@media (min-height: 750px){
+    html{
+        margin: 5% auto;
+    }
+}`
