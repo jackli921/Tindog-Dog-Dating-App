@@ -53,7 +53,6 @@ function renderScrollInstruction(){
     if (dogArrayIndex === 2){
         undoBtn.disabled = true
         disableBtns()
-        document.querySelector('#down-arrow').classList.add('not-allowed')
         const instructionEl = getInstructionModal()
         instructionEl.innerHTML = `${instructions.scrollDownText}`
     }
@@ -63,7 +62,6 @@ function renderScrollInstruction(){
 function renderPressDownBtnInstruction(){
     if (dogArrayIndex === 2){
         document.querySelector('#share-btn').classList.add('not-allowed')
-        document.querySelector('#down-arrow').classList.remove('not-allowed')
         const instructionEl = getInstructionModal()
         instructionEl.innerHTML = `${instructions.downArrow}`
     }
