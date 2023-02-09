@@ -20,7 +20,7 @@ body {
     border-radius: 10px;
     font-family: 'Poppins', sans-serif;
     margin: auto;
-    max-height: 876px;
+    max-height: 820px;
 }
 
 header {
@@ -31,7 +31,7 @@ header {
 .main-container {
     position: relative;
     height:90vh;
-    max-height: 800px;
+    max-height: 750px;
 }
 
 button {
@@ -157,8 +157,11 @@ button {
 }
 
 
-.profile-container >.final-message {
+.profile-container > .final-message {
     padding-bottom: 1.2em;
+    position: absolute;
+    bottom: 2em;
+    right: 2em;
 }
 
 .heart-icon{
@@ -169,23 +172,28 @@ button {
 
 
 /* profileimage section */
-.profile-img{
+
+
+#profile-card {
+    height: 95%;
+    position: relative;
+    transform-origin: 50% 99%;
+    max-height: 720px;
+    background-size: cover;
+}
+
+.profile-img {
     margin: 0px auto;
-    height: 600px;
-    width: 101%;
+    height: 100%;
+    width: 100%;
     display: block;
     object-fit: cover;
     z-index: 99
 }
 
-
-#profile-card {
-    position: relative;
-    transform-origin: 50% 99%;
-}
-
 .final-image {
-    height: 500px;
+    height: 100%;
+    background-size: cover;
 }
 
 /* badge section */
@@ -208,9 +216,9 @@ button {
 
 #text-overlay-container {
     position: relative;
-    bottom: 60px;
+    bottom: 90px;
     width: 400px;
-    padding-left: 1em;
+    padding: 1em;
     color: white;
     display: flex;
     font-weight: 600;
@@ -223,12 +231,11 @@ button {
 
 .expanded-profile-container {
     color: black;
-    height: 200px;
-    width: 400px;
-    padding-left: 1em;
-    padding-right: 1em;
+    height: 30%;
     overflow: hidden scroll;
     line-height: 1.5;
+    padding-right: 1em;
+    padding-left: 1em;
 }
 
 /* additional profile elements */
@@ -281,10 +288,10 @@ button {
 #info-icon,
 #down-arrow {
     position: absolute;
-    right: 2rem;
-    bottom: 2.5rem;
-    width: 40px;
-    cursor: pointer
+    right: 2em;
+    bottom: 50px;
+    cursor: pointer;
+    width:40px;
 }
 
 #down-arrow:hover,
@@ -325,6 +332,7 @@ button {
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background: linear-gradient(to bottom, #fd746c, #ff9068);
+    max-width: 300px;
 }
 .share-btn:hover,
 .ready-btn:hover{
@@ -892,34 +900,34 @@ input:checked + .slider:before{
 
 @keyframes zoom-in {
     from {
-        height: 600px;
+        height: 100%;
     }
 
     to {
-        height: 400px;
+        height:60%;
     }
 }
 
 
 @keyframes zoom-out {
     from {
-        height: 400px;
+        height: 60%;
     }
 
     to {
-        height: 600px;
+        height: 100%;
     }
 }
 
-.spin-in {
-    animation: spin-in 0.1s forwards;
+.stamp-in {
+    animation: stamp-in 0.1s forwards;
 }
 
-.spin-out {
-    animation: spin-out 0.4s forwards;
+.stamp-out {
+    animation: stamp-out 0.4s forwards;
 }
 
-@keyframes spin-in {
+@keyframes stamp-in {
     0% {
         width:1000%;
         opacity:0
@@ -945,7 +953,7 @@ input:checked + .slider:before{
     }
 }
 
-@keyframes spin-out {
+@keyframes stamp-out {
     0%{
         width: 50%;
     }

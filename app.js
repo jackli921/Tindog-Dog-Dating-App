@@ -47,7 +47,9 @@ function renderProfile(){
     isInstructionNeeded()
     handleInfoBtnClick()
     handleShareBtnClick()
+    profileCard.style.height = "100%"
     expandedProfile.classList.add('hidden')
+    
 }
 
 function renderRealDogArr(){
@@ -81,14 +83,14 @@ function handleInfoBtnClick(){
 
     else{
         infoBtn.addEventListener('click', ()=>{
-            dogAvatar.classList.remove("zoom-out") 
-            dogAvatar.classList.add("zoom-in")
+            profileCard.classList.remove("zoom-out") 
+            profileCard.classList.add("zoom-in")
             
             setTimeout(()=>{
                 textOverlay.style.display = "none"
-                dogAvatar.style.height = "400px"
+                profileCard.style.height = "60%"
                 expandedProfile.classList.remove('hidden')
-            },500)
+            },300)
             
             infoBtn.classList.toggle('hidden')
             downArrow.classList.toggle('hidden') 
@@ -96,14 +98,14 @@ function handleInfoBtnClick(){
         })
 
         downArrow.addEventListener('click', ()=>{
-            dogAvatar.classList.remove("zoom-in")
-            dogAvatar.classList.add("zoom-out")
+            profileCard.classList.remove("zoom-in")
+            profileCard.classList.add("zoom-out")
             
             setTimeout(()=>{
                 textOverlay.style.display = "block"
-                dogAvatar.style.height = "600px"
+                profileCard.style.height = "100%"
 
-            },500)
+            },300)
             
             infoBtn.classList.toggle('hidden')
             downArrow.classList.toggle('hidden')
@@ -180,7 +182,7 @@ undoBtn.addEventListener('click', ()=>{
             modifiableDogsData[dogArrayIndex].hasBeenSuperLiked = false  
             modifiableDogsData[dogArrayIndex].hasBeenSwiped = true
 
-        },500)
+        },300)
     }    
 })
 
@@ -285,7 +287,7 @@ function renderNextDog(){
                 enableBtns()
                 }
                 
-            },600)
+            },500)
         }
         else {
             setTimeout(()=>{renderEndScreen()}, 500) 
@@ -294,15 +296,16 @@ function renderNextDog(){
 
 function renderBadge(badgeName, addBadge){
     const badgeContainer = document.getElementById("badge-container") 
-    badgeContainer.innerHTML = `<img class="badge ${addBadge?"spin-in": "spin-out"}" id="badge"src="/images/${badgeName}.png">`       
+    badgeContainer.innerHTML = `<img class="badge ${addBadge?"stamp-in": "stamp-out"}" id="badge"src="/images/${badgeName}.png">`       
     const badge = document.getElementById("badge")
 }
 
 function renderEndScreen(){
     expandedProfile.classList.add('hidden')
+    document.getElementById('dog-avatar').style.backgroundImage = "url(''images/dog-maru.jpg'')"
+    
     profileCard.innerHTML =
         `
-        <img class="profile-img final-message final-image" id="dog-avatar" src="images/dog-maru.jpg" alt="">    
         <h2 class="center final-message">😲 No more hot dogs left! 🐕</h2>
         <h2 class="center final-message">Try again in 1 hour! 🕦 </h2>
         `

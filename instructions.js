@@ -71,7 +71,7 @@ function renderFinalInstruction(){
     const instructionEl = getInstructionModal()
     if(dogArrayIndex === 2){
         document.querySelector('#info-icon').classList.add('not-allowed')
-    
+        
         instructionEl.style.height = "40%"
         instructionEl.style.top = "30%" 
         instructionEl.innerHTML = `${instructions.readyText}`

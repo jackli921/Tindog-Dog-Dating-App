@@ -77,6 +77,7 @@ function renderWelcomePage(){
         setTimeout(() => {
             renderTutorial()
             profileCard.classList.remove('quick-zoom') 
+            profileCard.style.backgroundImage = "none"
         }, 500);
         
     })

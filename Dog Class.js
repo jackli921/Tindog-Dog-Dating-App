@@ -21,10 +21,15 @@ class DogClass{
                     <img src="/images/location-icon.png" id="location-icon">
                     <span id="dog-location"> ${city}, ${country}</span>
                 </div>
-     
+
+ 
             </div>
+
+
             <img src="/images/info-icon.png" id="info-icon">
             <img src="/images/down-arrow.png" id="down-arrow" class="hidden">  
+    
+
             <div id="instruction" class="instruction-overlay"></div>         
         `
     }
