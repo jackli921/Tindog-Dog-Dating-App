@@ -134,6 +134,8 @@ function handleShareBtnClick(){
                 url:url
             }).then(()=>{
                 console.log("Thanks for sharing!")
+                 shareModal.style.display = "none"
+                dogArrayIndex === 2 ? renderPressDownBtnInstruction() : dogArrayIndex 
             })
             .catch(console.error)
         }else{
