@@ -75,7 +75,7 @@ function handleInfoBtnClick(){
     const downArrow = document.getElementById('down-arrow')
 
     const isFakeDogs = dogArrayIndex < 2 || dogArrayIndex === 3
-    const isFirstTimeLookAtDemoDog = currentDog.name === "Yet another fake dog" && currentDog.hasBeenSwiped === false
+    const isFirstTimeLookAtDemoDog = currentDog.name === "faker dog" && currentDog.hasBeenSwiped === false
 
     if(isFakeDogs || isFirstTimeLookAtDemoDog){
         infoBtn.classList.add('not-allowed')
