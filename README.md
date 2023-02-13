@@ -10,6 +10,9 @@ Currently, it features 10+ complete dog profiles from around the world.
 4) Associated CSS transitions & Sound effects for the above buttons
 5) Collaposable information icon that reveals additional information about the dog 
 
+## Technologies
+- JavaScript, HTML5, CSS3
+
 ## Installation
 Tindog is a standalone web app that does not require any installation. 
 To run the project locally: 
@@ -26,9 +29,14 @@ Alternatively, you can:
 ## Background
 Tindog began as a simple solo project for cosolidating array methods taught in **Module 7 - Next Level JavaScript** [Scrimba Frontend Career Path Course](https://scrimba.com/learn/frontend). To improve the user experience, I imposed lots of stretch goals to create a more complete browsing experience.
 
-
 ## Demo
  ![Demo](/images/demo.gif)
-
+ 
+## Improvements
+ Pull requests are welcome. For major changes, feel free to open an issue to discuss what you would like to change. Some ideas
+ 1. Rebuild the existing project using React
+ 2. Create a backend to pull data directly from dedicated database
+ 3. Improve responsiveness for tablet and desktop screen sizes
+ 
 
 
