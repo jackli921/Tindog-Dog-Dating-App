@@ -1,5 +1,5 @@
 
-![Logo] (/images/tindog-icon.png)
+![Logo](/images/tindog-icon.png)
 
 #Title Dog Dating App
 A dating app for dogs mimicking interaction of Tinder
