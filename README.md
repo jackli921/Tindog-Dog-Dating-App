@@ -1,4 +1,7 @@
-# Dog Dating App
+
+![Logo] (/images/tindog-icon.png)
+
+#Title Dog Dating App
 A dating app for dogs mimicking interaction of Tinder
 
 [Live Site](https://tindog-jack.netlify.app/)
@@ -14,7 +17,6 @@ A dating app for dogs mimicking interaction of Tinder
 - Expandable info icon that reveals more info about the dog 
 
 ## Demo
- ![](/images/demo.gif)
-
+ ![Demo](/images/demo.gif)
 
 
