@@ -2,8 +2,13 @@
 ![Logo](/images/tindog-icon.png)
 
 ## Summary 
-Tindog is a mobile dating app that mimicks the basic functionality of Tinder.
-It comes with 10+ complete dog profiles from cities around the world.
+**Tindog** is a dating app that mimicks the basic functionality of Tinder.
+Currently, it features 10+ complete dog profiles from around the world.
+1) A welcoming landing page that asks for user consent  
+2) An simple walk-through with animated written instructions
+3) Like, reject, superlike, and rewind funtionalities
+4) Associated CSS transitions & Sound effects for the above buttons
+5) Collaposable information icon that reveals additional information about the dog 
 
 ## Installation
 Tindog is a standalone web app that does not require any installation. 
@@ -21,12 +26,6 @@ Alternatively, you can:
 ## Background
 Tindog began as a simple solo project for cosolidating array methods taught in **Module 7 - Next Level JavaScript** [Scrimba Frontend Career Path Course](https://scrimba.com/learn/frontend). To improve the user experience, I imposed lots of stretch goals to create a more complete browsing experience.
 
-## Features
-- A welcoming landing page that asks for user consent  
-- An simple walk-through with animated written instructions
-- Like, reject, superlike, and rewind funtionalities
-- Associated CSS transitions & Sound effects for the above buttons
-- Collaposable information icon that reveals additional information about the dog 
 
 ## Demo
  ![Demo](/images/demo.gif)
