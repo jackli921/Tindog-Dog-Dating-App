@@ -1,6 +1,6 @@
 
 <div align="center">
- <img src="/images/tindog-icon.png" width:200px>
+ <img src="/images/tindog-icon.png" width="200px">
 </div>
 
 ## Summary 
@@ -34,7 +34,7 @@ Alternatively, you can:
 
 ## Demo
 <div align="center">
- <img src="/images/demo.gif" height=600px>
+ <img src="/images/demo.gif" height="600px">
 </div>
  
 ## Improvements
