@@ -1,5 +1,7 @@
 
-![Logo](/images/tindog-icon.png)
+<div align="center">
+ <img src="/images/tindog-icon.png" width:200px>
+</div>
 
 ## Summary 
 **Tindog** is a dating app that mimicks the basic functionality of Tinder.
@@ -31,7 +33,9 @@ Alternatively, you can:
 - JavaScript ES6, HTML5, CSS3
 
 ## Demo
- ![Demo](/images/demo.gif)
+<div align="center">
+ <img src="/images/demo.gif" height=600px>
+</div>
  
 ## Improvements
  Pull requests are welcome. For major changes, feel free to open an issue to discuss what you would like to change. Some ideas
