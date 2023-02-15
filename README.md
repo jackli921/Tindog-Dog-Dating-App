@@ -1,6 +1,6 @@
 
 <div align="center">
- <img src="/images/tindog-icon.png" width="200px">
+ <img src="/images/tindog-icon.png" width="300px">
 </div>
 
 ## Summary 
