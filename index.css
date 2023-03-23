@@ -18,6 +18,10 @@ body {
     max-height: 820px;
 }
 
+html{
+    padding: 1em 0;
+}
+
 header {
     padding-right: 20px;
     padding-left: 20px;
@@ -1029,12 +1033,5 @@ input:checked + .slider:before{
     to{
         opacity: 0;
         transform: translateY(-100%);
-    }
-
-}
-
-@media (min-height: 750px){
-    html{
-        margin: 5% auto;
     }
 }
