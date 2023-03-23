@@ -4,14 +4,9 @@
     box-sizing: border-box;
 }
 
-html {
-    background-image: linear-gradient(to right, #fd746c, #ff9068);
-
-}
-
 /* universal */
 body {
-    background-color: white;
+    background-color: whitesmoke;
     width: 100%;
     max-width: 400px;
     height: 100vh;
@@ -82,6 +77,29 @@ button {
 
 .welcome-text-modal{
     margin-top: 3em;
+    background: whitesmoke;
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+}
+
+
+.brand-gradient-text{
+    /* background: linear-gradient(to right, #f12711, #f5af19); */
+    background: linear-gradient(to right, #f93a71, #f7817c);
+    background-clip: text;
+    -webkit-background-clip: text;
+    /* For Safari */
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    /* For Safari */
+}
+
+.brand-gradient{
+    background: linear-gradient(to right, #f93a71, #f7817c);
 }
 
 /* welcome screen */
@@ -98,17 +116,6 @@ button {
     background-size: cover;
     background-position: center;
     overflow: hidden;
-}
-
-.text-primary{
-   width:80%;
-   font-weight: 600;
-   font-size: 1.2em;
-   margin: 0 auto; 
-   padding: 1em;
-   background: linear-gradient(to bottom, #fd746c, #ff9068);
-   border-radius: 10px;
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /* mains section */
@@ -173,7 +180,6 @@ button {
 
 
 #profile-card {
-    height: 95%;
     position: relative;
     transform-origin: 50% 99%;
     max-height: 720px;
@@ -401,6 +407,7 @@ button {
 .nav-icons:hover,
 .nav-icons:focus {
     color: orange;
+    
 }
 
 .reject-btn:hover,
@@ -464,7 +471,6 @@ button {
     height: 580px;
     position: absolute;
     z-index: 1;
-    background-color: whitesmoke;
     margin-top: 10px;
     left: 50%;
     top: 46%;
@@ -478,7 +484,7 @@ button {
     animation-name: fade-in;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
-    background: linear-gradient(to right, #fd746c, #ff9068);
+    background: whitesmoke;
 }
 
 .about-modal > p {
@@ -489,20 +495,21 @@ button {
 .user-under-review-modal{
     width: 100%;
     height: 100%;
-    max-height: 80%;
+    max-height: 82%;
     min-width: 300px;
     position: absolute;
     z-index: 1;
     margin-top: 10px;
     left: 50%;
-    top: 46%;
+    top: 47%;
     transform: translate(-50%, -50%);
     padding: 1.5em;
     flex-direction: column;
     align-items: center;
+    justify-content: space-evenly;
     gap: 1em;
     animation-name: fade-in;
-    animation-duration: 0.5s;
+    animation-duration: 0.2s;
     animation-timing-function: ease-in-out;
     /* background: linear-gradient(to right, #fd746c, #ff9068); */
     background-color: whitesmoke;
@@ -515,11 +522,11 @@ button {
     border-radius: 10px;
     font-size: 1.5rem;
     font-weight: bolder;
-    background-color: #F0CB35;
+    background: linear-gradient(to right, #f93a71, #f7817c);
     border: 2px solid black;
-    transition: all .3s;
+    transition: all .1s;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
+    margin: 1em 0;
 }
 
 .button-primary:focus,
@@ -539,11 +546,6 @@ button {
 }
 
 
-.white-text {
-    color: whitesmoke;
-    line-height: 1.3
-}
-
 .terms {
     width: 100;
     font-size: 14px;
@@ -553,10 +555,10 @@ button {
 .consent-modal {
     padding: 1em;
     width: 75%;
-    height:210px;
-    background: linear-gradient(to right, #fd746c, #ff9068);
+    background:whitesmoke;
     border-radius: 10px;
     margin-top: 5em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 .consent-input-box{
     margin: 0 auto;
@@ -580,18 +582,17 @@ button {
 .rectangular-btn-primary{
     width:250px;
     display: block;
-    margin:0 auto;
+    margin:1em auto;
     padding: 0.7em 2em;
     border: 0;
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 1.3rem;   
     transition: transform 0.3s;
+    font-weight: bold;
 }
 
-.cool-hover:hover{
-    background: linear-gradient(to left, #6e45e2, #88d3ce);
-}
+
 .cool-gradient{
     background: linear-gradient(to left, #6e45e2, #88d3ce);
     /* background: linear-gradient(to right, #fec5ec, #9795f0); */

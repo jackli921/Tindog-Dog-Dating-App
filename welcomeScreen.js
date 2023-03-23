@@ -15,7 +15,7 @@ function renderAgreementPage(){
          
         <i class="fa-solid fa-heart heart-icon hidden" id="heart-icon"></i>
         <div class="consent-modal slide-left" id="consent-modal">
-            <p class="white-text terms">To continue using our service, please confirm that you are not a cat</p>
+            <p class="terms">To continue using our service, please confirm that you are not a cat</p>
 
             <div class="consent-input-box">
                 <p>I confirm that I am not a cat</p>
@@ -68,8 +68,14 @@ function renderWelcomeAnimations(){
 function renderWelcomePage(){
     profileCard.style.backgroundImage = "url('./images/welcome2-bg.jpg')"
     profileCard.innerHTML = `
-        <div class="text-primary slide-right welcome-text-modal">🎉 Welcome to Tindog: 🔥 World Edition - A fake dating app for canines everywhere! <br> Ready for a walkthrough?</div>
-        <button class="rectangular-btn-primary cool-hover slide-left" id="continue-btn-2">Yes &nbsp <i class="fa-solid fa-right-long"></i> </button>
+        <div class="slide-right welcome-text-modal"> 
+        <h2>🎉 Welcome to <span class="brand-gradient-text">Tindog</span> </h2>
+        <p>A fake dating app for canines everywhere! </p> 
+        <br> 
+        <h3>Ready for a walkthrough?</h3>
+        
+        </div>
+        <button class="rectangular-btn-primary brand-gradient cool-hover slide-left" id="continue-btn-2">Yes &nbsp <i class="fa-solid fa-right-long"></i> </button>
     `
 
     document.querySelector('#continue-btn-2').addEventListener('click',()=>{
