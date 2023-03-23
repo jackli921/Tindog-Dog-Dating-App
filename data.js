@@ -224,6 +224,6 @@ const instructions = {
     downArrow: `<p class="instruction-text">Tap <img src="/images/down-arrow.png" class="primary-icon"> to view the dog's full photo again!</p>`,
     scrollDownText:` <div class="instruction-text">Scroll down, read their profile, and tap </div> <div class="instruction-text"> <img class="share-icon" src="./images/share-btn.svg"> to share their profile!</div>`,
     readyText:` <p class="instruction-text">Other icons do things to! Try them out! Ready to meet some dogs today?</p>
-        <button id="ready-btn" class="rectangular-btn-primary cool-hover">Ready!</button>`
+        <button id="ready-btn" class="rectangular-btn-primary brand-gradient">Ready!</button>`
 }
 export { realDogsData, fakeDogsData, instructions }
