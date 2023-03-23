@@ -269,13 +269,12 @@ chatIcon.addEventListener('click', ()=>{
 
 function renderUserUnderReviewModal(){
     userProfileModal.style.display = "flex"
-
+    document.getElementById('profile-close-button').addEventListener('click',()=>{
+    userProfileModal.style.display = "none"
+})
 }
 
-document.getElementById('profile-close-button').addEventListener('click',()=>{
-    userProfileModal.style.display = "none"
 
-})
 
 function renderNextDog(){ 
         if(dogArrayIndex < modifiableDogsData.length){

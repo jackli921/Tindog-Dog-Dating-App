@@ -64,15 +64,14 @@ button {
 }
 
 .nav-icons {
+    display: block;
     height: 34px;
+    font-size: 34px;
     margin: 0px 18px;
+    color: #c9d0d6;
     cursor: pointer;
 }
 
-.fa-dog{
-    font-size: 33px;
-    color: #c9d0d6;
-}
 
 .welcome-text-modal{
     margin-top: 3em;
@@ -592,13 +591,24 @@ button {
     display: block;
     padding: 0.7em 2em;
     border: 0;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 15px;    
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 1.3rem;   
     transition: transform 0.3s;
     font-weight: bold;
 }
 
+
+.consent-continue-btn{
+    width: 250px;
+        display: block;
+        padding: 0.7em 2em;
+        border: 1px;
+        border-radius: 15px;
+        font-size: 1.3rem;
+        transition: transform 0.3s;
+        font-weight: bold;
+}
 
 
 /* the switch - the box around the r */
@@ -641,7 +651,7 @@ button {
 
 /* when checked, change the color of the background to blue */
 input:checked + .slider{
-    background-color: #2196F3;
+    background: linear-gradient(to right, #f93a71, #f7817c);
 }
 
 input:focus + .slider{

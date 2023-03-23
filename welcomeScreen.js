@@ -25,7 +25,7 @@ function renderAgreementPage(){
                 </label>
             </div>
 
-            <button disabled class="rectangular-btn-primary not-allowed" id="continue-btn">Continue &nbsp <i class="fa-solid fa-right-long"></i> </button>
+            <button disabled class="consent-continue-btn not-allowed" id="continue-btn">Continue &nbsp <i class="fa-solid fa-right-long"></i> </button>
         </div>
     `
 }
