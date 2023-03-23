@@ -90,6 +90,7 @@ function handleInfoBtnClick(){
                 textOverlay.style.display = "none"
                 profileCard.style.height = "60%"
                 expandedProfile.classList.remove('hidden')
+                expandedProfile.scrollTop = 0;
             },300)
             
             infoBtn.classList.toggle('hidden')

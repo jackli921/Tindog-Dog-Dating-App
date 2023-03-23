@@ -240,8 +240,7 @@ button {
     height: 30%;
     overflow: hidden scroll;
     line-height: 1.5;
-    padding-right: 1em;
-    padding-left: 1em;
+    padding: 1em ;
 }
 
 /* additional profile elements */
@@ -449,7 +448,8 @@ button {
     transform: translate(-50%,-50%);
     width: 300px;
     height: 360px;
-    background: linear-gradient(to right, #fd746c, #ff9068);
+    background: whitesmoke;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 15px;
     display: none;
     animation-name: fade-in;
