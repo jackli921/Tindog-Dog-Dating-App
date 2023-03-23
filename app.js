@@ -247,14 +247,9 @@ superBtn.addEventListener('click',()=>{
 })
 
 tindogLogo.addEventListener('click', ()=>{
-    disableBtns()
-    undoBtn.disabled = true;
     homepageModal.style.display = "flex"
-    
     document.getElementById('homepage-close-button').addEventListener('click',()=>{
         homepageModal.style.display = "none"
-        enableBtns()
-        undoBtn.disabled = true;
     })
 })
 
