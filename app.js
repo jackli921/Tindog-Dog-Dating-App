@@ -301,8 +301,10 @@ function renderEndScreen(){
     
     profileCard.innerHTML =
         `
-        <h2 class="center final-message">😲 No more hot dogs left! 🐕</h2>
-        <h2 class="center final-message">Try again in 1 hour! 🕦 </h2>
+        <div class="final-message-container">
+        <h2 class="center">😲 No more hot dogs left! 🐕 <br> Try again in 1 hour! 🕦 </h2>
+         
+        </div?
         `
 }
 
