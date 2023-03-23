@@ -12,7 +12,7 @@ body {
     height: 100vh;
     position: relative;
     border: 0.3rem solid black;
-    border-radius: 10px;
+    border-radius: 15px;
     font-family: 'Poppins', sans-serif;
     margin: 0 auto;
     max-height: 820px;
@@ -42,7 +42,6 @@ button {
 
 .not-allowed{
     cursor: not-allowed;
-    
 }
 
 .bold {
@@ -81,7 +80,7 @@ button {
     width: 80%;
     margin: 0 auto;
     padding: 1em;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     text-align: center;
 }
@@ -289,6 +288,11 @@ button {
     width:40px;
 }
 
+
+#info-icon.not-allowed{
+    opacity: 0.5;
+}
+
 #info-icon,
 #down-arrow {
     position: absolute;
@@ -333,7 +337,7 @@ button {
     font-size: 1.3rem;
     padding: 0.7em 2em;
     border: 0;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     background: linear-gradient(to bottom, #fd746c, #ff9068);
     max-width: 300px;
@@ -447,7 +451,7 @@ button {
     width: 300px;
     height: 360px;
     background: linear-gradient(to right, #fd746c, #ff9068);
-    border-radius: 10px;
+    border-radius: 15px;
     display: none;
     animation-name: fade-in;
     animation-duration: 0.2s;
@@ -475,7 +479,7 @@ button {
     left: 50%;
     top: 46%;
     transform: translate(-50%, -50%);
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 1.5em;
     display: hidden;
     flex-direction: column;
@@ -519,7 +523,7 @@ button {
 .button-primary {
     width: 200px;
     padding: 0.5em 0.5em;
-    border-radius: 10px;
+    border-radius: 15px;
     font-size: 1.5rem;
     font-weight: bolder;
     background: linear-gradient(to right, #f93a71, #f7817c);
@@ -556,10 +560,14 @@ button {
     padding: 1em;
     width: 75%;
     background:whitesmoke;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-top: 5em;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
+
 .consent-input-box{
     margin: 0 auto;
     width:80%;
@@ -582,21 +590,15 @@ button {
 .rectangular-btn-primary{
     width:250px;
     display: block;
-    margin:1em auto;
     padding: 0.7em 2em;
     border: 0;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     font-size: 1.3rem;   
     transition: transform 0.3s;
     font-weight: bold;
 }
 
-
-.cool-gradient{
-    background: linear-gradient(to left, #6e45e2, #88d3ce);
-    /* background: linear-gradient(to right, #fec5ec, #9795f0); */
-}
 
 
 /* the switch - the box around the r */

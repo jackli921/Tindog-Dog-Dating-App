@@ -18,7 +18,7 @@ function renderAgreementPage(){
             <p class="terms">To continue using our service, please confirm that you are not a cat</p>
 
             <div class="consent-input-box">
-                <p>I confirm that I am not a cat</p>
+                <p class="brand-gradient-text">I confirm that I am not a cat</p>
                 <label class="switch">
                     <input type="checkbox" id="consent-checkbox">
                     <span class="slider round"></span>
@@ -38,12 +38,12 @@ function checkUserConsent() {
         if(consentCheckbox.checked){
              continueBtn.disabled = false
              continueBtn.classList.remove('not-allowed')
-             continueBtn.classList.add('cool-gradient')
+             continueBtn.classList.add('brand-gradient')
              continueBtn.addEventListener('click',renderWelcomeAnimations)
         }else{
             continueBtn.disabled = true
             continueBtn.classList.add('not-allowed')
-            continueBtn.classList.remove('cool-gradient')
+            continueBtn.classList.remove('brand-gradient')
         }
     })
 }
